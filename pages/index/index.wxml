@@ -1,0 +1,44 @@
+<!--index.wxml-->
+<view class="container">
+  <scroll-view class="listScroll" style="height: {{clientHeight?clientHeight+'px':'auto'}}" scroll-y="true" bindscrolltolower="loadMore">
+    <swiper indicator-dots="{{indicatorDots}}" style='width:100%'
+      autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+      <block wx:for="{{imgUrls}}" wx:key="{{t}}">
+        <swiper-item>
+          <image src="{{item.thumb}}" class="slide-image" />
+        </swiper-item>
+      </block>
+    </swiper>
+    <view class='icons'>
+      <view class='head'>
+        <text class='title'>圈子推荐</text>
+        <navigator url='' class='more'>我的圈子</navigator>
+      </view>
+      <view class='cont'>
+        <view class='item' wx:for="{{iconsList}}" wx:key="{{t}}">
+          <image class="thumb" src="{{item.thumb}}"></image>
+          <text class='name'>{{item.title}}</text>
+        </view>
+      </view>
+    </view>
+    <view class='topList'>
+        <view class='item' wx:for="{{topList}}" wx:key="{{t}}">
+          <view class='head'>
+            <image class='avatar' src='{{item.avatar}}'></image>
+            <text class='username'>{{item.username}}</text>
+          </view>
+          <navigator class='cont' url=''>
+            <view class='title'>{{item.title}}</view>
+            <view class='desc'>{{item.introduce}}</view>
+            <view class='thumb' wx:if="{{item.thumb}}"><image class='thumbImg' src="{{item.thumb}}"></image></view>
+            <view class='info'>
+              <text class='n'>{{item.gname}}</text>
+              <text class='v'>阅读{{item.hits}}</text>
+              <text class='r'>回复{{item.reply}}</text>
+            </view>
+          </navigator>
+        </view>
+        <view class='moreText'>{{moreText}}</view>
+    </view>
+  </scroll-view>
+</view>

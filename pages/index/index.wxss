@@ -1,0 +1,113 @@
+/**index.wxss**/
+.slide-image{
+  width: 750rpx;
+  height: 350rpx;
+}
+.icons{
+  height: 500rpx;
+  background: #fff;
+  padding-top: 30rpx;
+}
+.icons .head{
+  height: 48rpx;
+}
+.icons .head .title{
+  float: left;
+  padding-left: 30rpx;
+  font-size: 34rpx;
+}
+.icons .head .more{
+  color: #666;
+  float: right;
+  padding-right: 30rpx;
+  font-size: 30rpx;
+}
+.icons .cont{
+  height: 420rpx;
+  padding-top: 30rpx
+}
+.icons .cont .item{
+  text-align: center;
+  width: 25%;
+  float: left;
+  height: 200rpx;
+  overflow: hidden;
+}
+.icons .cont .item .thumb{
+  display: block;
+  width: 100rpx;
+  height: 100rpx;
+  margin: 0 auto;
+  border-radius: 100%;
+}
+.icons .cont .item .name{
+  display: block;
+  color: #666;
+  font-size: 30rpx;
+  padding-top: 20rpx;
+}
+.topList{
+  margin-top: 20rpx;
+  background: #fff;
+}
+.topList .item{
+  border-bottom: 1px solid #e5e5e5;
+  padding: 30rpx;
+}
+.topList .item .head{
+    height: 50rpx;
+}
+.topList .item .head .username{
+    color: #666;
+    font-size: 34rpx;
+}
+.topList .item .cont{
+  display: block;
+  width: 690rpx;
+  overflow: hidden;
+}
+.topList .item .cont .title{
+  font-size: 38rpx;
+  color: #333;
+  padding: 20rpx 0;
+}
+.topList .item .cont .desc{
+  color: #666;
+  font-size: 30rpx;
+}
+.topList .item .cont .thumb{
+  width: 690rpx;
+  height: 300rpx;
+  overflow: hidden;
+  margin-top: 20rpx;
+}
+.topList .item .cont .thumbImg{
+  width: 690rpx;
+  height: 300rpx;
+}
+.topList .item .cont .info{
+  padding-top: 20rpx;
+  color: #999;
+  font-size: 30rpx;
+}
+.topList .item .cont .r{
+  float: right;
+  padding-left: 30rpx;
+}
+.topList .item .cont .v{
+  float: right;
+  padding-left: 30rpx;
+}
+.topList .moreText{
+  text-align: center;
+  color: #666;
+  font-size: 30rpx;
+  padding:40rpx; 
+}
+.topList .item .avatar{
+  width: 60rpx;
+  height: 60rpx;
+  border-radius: 100%;
+  float: left;
+  margin-right: 20rpx;
+}
