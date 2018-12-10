@@ -14,7 +14,7 @@
 	"compileType": "miniprogram",
 	"libVersion": "2.4.1",
 	"appid": "wx6db7498d371fb240",
-	"projectname": "wxhua",
+	"projectname": "%E6%AD%A3%E5%86%9C%E7%BD%91",
 	"debugOptions": {
 		"hidedInDevtools": []
 	},
@@ -43,7 +43,7 @@
 					"id": 0,
 					"name": "detail",
 					"pathName": "pages/detail/detail",
-					"query": ""
+					"query": "itemid=15&gid=4150"
 				}
 			]
 		}

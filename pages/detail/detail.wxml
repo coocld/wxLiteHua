@@ -3,8 +3,8 @@
   <view class='detailHead'>
     <image class='avatar' src='{{detail.avatar}}'></image>
     <view class='uinfo'>
-      <view class='uname'>{{detail.username}}</view>
-      <view class='utag'>楼主</view>
+      <view class='uname'>{{detail.username}} 楼主</view>
+      <view class='utag'>VIP{{detail.level}} {{detail.areaname}}</view>
     </view>
   </view>
   <view class='detailTitle'>{{detail.title}}</view>
@@ -16,5 +16,39 @@
   <view class='context'>
     <rich-text nodes="{{detail.content}}"></rich-text>
   </view>
-  
+  <view class='reply'>
+    <view class='replyHead'><text class='title'>全部回帖</text></view>
+    <view class='replyList'>
+      <view class='replyItem' wx:for="{{replyList}}" wx:key="{{t}}">
+        <view class='itemHead'>
+          <image src='https://www.cnnma.com/api/avatar/show.php?username=coocld&size=large' class='avatar'></image>
+          <view class='reyname'>
+            <view class='name'>{{item.username}}</view>
+            <view class='leve'>VIP1</view>
+          </view>
+          <view class='floor'>{{item.fid}}楼</view>
+        </view>
+        <view class='itemCont'>
+          <rich-text nodes="{{item.content}}"></rich-text>
+        </view>
+        <view class='itemBot'>
+          <text class='ted datatime'>2018-12-12</text>
+          <text class='ted adds'>武汉</text>
+          <text class='ted replyComm'>回复</text>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class='replyForm'>
+    <view class='replyFormHead'>
+      <text class='close'>取消</text>
+      <text class='submit'>发送</text>
+    </view>
+    <view class='replyFormCont'>
+       <textarea placeholder="这是一个可以自动聚焦的textarea" placeholder-style="color:#f5f5f5;" auto-focus />
+    </view>
+  </view>
+  <view class='bottomTab'>
+    <view class='btn repBtn'>回复</view>
+  </view>
 </view>
