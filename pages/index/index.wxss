@@ -1,4 +1,7 @@
 /**index.wxss**/
+.container{
+  background: #f5f5f5;
+}
 .slide-image{
   width: 750rpx;
   height: 350rpx;

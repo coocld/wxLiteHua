@@ -1,4 +1,20 @@
 <!--logs.wxml-->
 <view class="container">
- 
+  <view class='detailHead'>
+    <image class='avatar' src='{{detail.avatar}}'></image>
+    <view class='uinfo'>
+      <view class='uname'>{{detail.username}}</view>
+      <view class='utag'>楼主</view>
+    </view>
+  </view>
+  <view class='detailTitle'>{{detail.title}}</view>
+  <view class='tinfo'>
+    <text class='view'>查看：{{detail.hits}}</text>
+    <text class='data'>时间：{{dataTime}}</text>
+    <navigator url='#' class='group'>{{detail.gname}}</navigator>
+  </view>
+  <view class='context'>
+    <rich-text nodes="{{detail.content}}"></rich-text>
+  </view>
+  
 </view>
