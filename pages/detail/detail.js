@@ -7,7 +7,8 @@ Page({
     gid: '',
     detail:{},
     dataTime: '',
-    replyList:[]
+    replyList:[],
+    focus: false
   },
   onLoad: function (options) {
     this.setData({
@@ -52,6 +53,11 @@ Page({
           replyList: res.data.data
         })
       }
+    })
+  },
+  bindButtonTap: function () {
+    this.setData({
+      focus: true
     })
   }
 })

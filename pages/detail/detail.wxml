@@ -45,10 +45,10 @@
       <text class='submit'>发送</text>
     </view>
     <view class='replyFormCont'>
-       <textarea placeholder="这是一个可以自动聚焦的textarea" placeholder-style="color:#f5f5f5;" auto-focus />
+       <textarea placeholder="这是一个可以自动聚焦的textarea" placeholder-style="color:#ccc;" focus="{{focus}}" />
     </view>
   </view>
   <view class='bottomTab'>
-    <view class='btn repBtn'>回复</view>
+    <view class='btn repBtn' bindtap="bindButtonTap">回复</view>
   </view>
 </view>
