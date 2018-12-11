@@ -39,16 +39,11 @@
       </view>
     </view>
   </view>
-  <view class='replyForm'>
-    <view class='replyFormHead'>
-      <text class='close'>取消</text>
-      <text class='submit'>发送</text>
-    </view>
-    <view class='replyFormCont'>
-       <textarea placeholder="这是一个可以自动聚焦的textarea" placeholder-style="color:#ccc;" focus="{{focus}}" />
-    </view>
-  </view>
+  
   <view class='bottomTab'>
-    <view class='btn repBtn' bindtap="bindButtonTap">回复</view>
+    <view class='replyFormCont'>
+       <textarea bindblur="bindTextAreaBlur" placeholder="发表评论" placeholder-style="color:#ccc;" fixed="true" focus="{{focus}}" auto-height />
+    </view>
+    <view class='btn repBtn' bindtap="repBtnMsg">回复</view>
   </view>
 </view>

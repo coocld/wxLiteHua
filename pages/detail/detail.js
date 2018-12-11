@@ -8,7 +8,7 @@ Page({
     detail:{},
     dataTime: '',
     replyList:[],
-    focus: false
+    content:''
   },
   onLoad: function (options) {
     this.setData({
@@ -19,7 +19,7 @@ Page({
     this.getReplyList()
   },
   getDetail: function () {//detail
-  let that = this
+    let that = this
     let data = {
       itemid: this.data.itemid,
       gid: this.data.gid
@@ -48,16 +48,42 @@ Page({
       data: data,
       header: { 'content-type': 'application/json' },
       success(res) {
-        console.log(res)
         that.setData({
           replyList: res.data.data
         })
       }
     })
   },
-  bindButtonTap: function () {
+  bindTextAreaBlur(e) {
+    
     this.setData({
-      focus: true
+      content: e.detail.value
+    })
+    console.log(this.data.content)
+  },
+  repBtnMsg: function () {
+    this.upReply()
+  },
+  upReply: function () {//detail
+    let that = this
+    console.log(that.data.content)
+    let data = {
+      tid: this.data.itemid,
+      gid: this.data.gid,
+      username:"coocld",
+      passport:"coocld",
+      content: that.data.content,
+      status: 3,
+      addtime: Date.parse(new Date())
+    }
+    wx.request({
+      url: app.globalData.apiUrl + '/api/v2/club/addReply.php',
+      method: 'POST',
+      data: JSON.stringify(data),
+      header: { 'content-type': 'application/json' },
+      success(res) {
+       console.log(res)
+      }
     })
   }
 })
