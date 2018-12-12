@@ -37,13 +37,18 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 0,
+			"current": 1,
 			"list": [
 				{
 					"id": 0,
 					"name": "detail",
 					"pathName": "pages/detail/detail",
 					"query": "itemid=15&gid=4150"
+				},
+				{
+					"id": -1,
+					"name": "user",
+					"pathName": "pages/user/user"
 				}
 			]
 		}
