@@ -37,7 +37,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 2,
+			"current": 4,
 			"list": [
 				{
 					"id": 0,
@@ -54,7 +54,19 @@
 				{
 					"id": -1,
 					"name": "授权",
-					"pathName": "pages/auth/auth"
+					"pathName": "pages/auth/auth",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "auth",
+					"pathName": "pages/auth/auth",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "reg",
+					"pathName": "pages/reg/reg"
 				}
 			]
 		}
