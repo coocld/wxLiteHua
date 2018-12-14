@@ -15,7 +15,7 @@
 .reg .inp{
   height: 100rpx;
 }
-.reg .phone{
+.reg .code{
   width: 70%;
   float: left;
   height: 100rpx;

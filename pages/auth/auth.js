@@ -14,6 +14,7 @@ Page({
       this.setData({
         userInfo: app.globalData.userInfo
       })
+      console.log(app.globalData.userInfo)
       wx.navigateTo({
         url: '/pages/reg/reg'
       })
