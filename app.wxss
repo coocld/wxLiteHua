@@ -2,3 +2,6 @@
 .container{
   background: #fff;
 }
+.navigator-hover {
+  background-color:#fff;
+}

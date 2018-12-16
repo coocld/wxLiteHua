@@ -1,8 +1,34 @@
 <!--index.wxml-->
 <view class="container">
-  <view class="userinfo">
+  <view class="userinfo" wx:if="{{hasUserInfo}}">
       <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
       <text class="userinfo-nickname">{{userInfo.nickName}}</text>
   </view>
-  
+  <block wx:if="{{hasUserInfo}}">
+    <view class='userItem' >
+      <navigator url='/pages/mygroup/mygroup' class='myGroupItem'>我的圈子<text class='rightIcon'></text></navigator>
+    </view>
+    <view class='userItem' >
+      <navigator url='##' class='myGroupItem'>
+      我的帖子
+      <text class='rightIcon'></text>
+      </navigator>
+    </view>
+    <view class='userItem' >
+      <navigator url='##' class='myGroupItem'>我的回复<text class='rightIcon'></text></navigator>
+    </view>
+    <view class='userItem' >
+      <navigator url='##' class='myGroupItem'>我的名片<text class='rightIcon'></text></navigator>
+    </view>
+  </block>
+
+  <view class='nouserinfo' wx:else>
+    <view class='logo'>
+      <image class='logoimg' src='https://www.cnnma.com/public/logo.png'></image>
+    </view>
+    <view class='desc'>请完成微信授权以继续使用</view>
+    <view class="userinfo">
+      <button type="primary" lang="zh_CN" class='authBtn' open-type="getUserInfo" bindgetuserinfo="getUserInfo">微信授权用户信息</button>
+    </view>
+  </view>  
 </view>

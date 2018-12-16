@@ -1,0 +1,7 @@
+<view class="login">
+  <view class='logo'>
+  <image class='logoimg' src='https://www.cnnma.com/public/logo.png'></image>
+  </view>
+  <view class='desc'>请用微信登陆</view>
+  <button class='getPhoneBtn' open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber" type="primary">微信登陆</button>
+</view>

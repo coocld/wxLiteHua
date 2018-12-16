@@ -1,0 +1,123 @@
+.container{
+  width: 100%;
+  background: #f5f5f5;
+}
+.cardList{
+  margin-top: 30rpx;
+  background: #fff;
+}
+.cardList .item{
+  border-bottom: 1px solid #e5e5e5;
+  padding: 30rpx;
+}
+.cardList .item .head{
+    height: 50rpx;
+}
+.cardList .item .head .username{
+    color: #666;
+    font-size: 34rpx;
+}
+.cardList .item .cont{
+  display: block;
+  width: 690rpx;
+  overflow: hidden;
+}
+.cardList .item .cont .title{
+  font-size: 38rpx;
+  color: #333;
+  padding: 20rpx 0;
+}
+.cardList .item .cont .desc{
+  color: #666;
+  font-size: 30rpx;
+}
+.cardList .item .cont .thumb{
+  width: 690rpx;
+  height: 300rpx;
+  overflow: hidden;
+  margin-top: 20rpx;
+}
+.cardList .item .cont .thumbImg{
+  width: 690rpx;
+  height: 300rpx;
+}
+.cardList .item .cont .info{
+  padding-top: 20rpx;
+  color: #999;
+  font-size: 30rpx;
+}
+.cardList .item .cont .r{
+  float: right;
+  padding-left: 30rpx;
+}
+.cardList .item .cont .v{
+  float: right;
+  padding-left: 30rpx;
+}
+.cardList .moreText{
+  text-align: center;
+  color: #666;
+  font-size: 30rpx;
+  padding:40rpx; 
+}
+.cardList .item .avatar{
+  width: 60rpx;
+  height: 60rpx;
+  border-radius: 100%;
+  float: left;
+  margin-right: 20rpx;
+}
+.groupDetail{
+  padding: 30rpx;
+  background: #fff;
+}
+.groupDetail .groupInfo{
+  height: 100rpx;
+  width: 100%;
+  overflow: hidden;
+}
+.groupDetail .groupInfo .groupthumb{
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 100%;
+  float: left;
+}
+.groupDetail .groupInfo .groupInfoText{
+  width: 570rpx;
+  float: right;
+  padding-left: 20rpx;
+}
+.groupDetail .groupInfo .groupInfoText .name{
+  font-size: 36rpx;
+  color: #333;
+  width: 100%;
+  height: 50rpx;
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space: nowrap;
+}
+.groupDetail .groupInfo .groupInfoText .desc{
+  font-size: 28rpx;
+  color: #999;
+  padding-top: 8rpx;
+  width: 100%;
+  height: 45rpx;
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space: nowrap;
+}
+.groupData{
+  margin-top: 30rpx;
+}
+.groupData .dataItem{
+  height: 50rpx;
+  line-height: 50rpx;
+  font-size: 30rpx;
+  color: #666;
+}
+.joinGroup{
+  height: 90rpx;
+  line-height: 90rpx;
+  font-size: 36rpx;
+  margin-top: 30rpx;
+}

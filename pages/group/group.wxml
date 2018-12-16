@@ -1,0 +1,21 @@
+<!--index.wxml-->
+<view class="container">
+  <view class='groupLeft'>
+    <scroll-view class="groupCate" scroll-y="true">
+      <view class='{{item.catid == onCateid ? "groupBtn groupBtnCur" : "groupBtn"}}' id='{{item.catid}}' ontap="onGroupBtn" wx:for="{{catList}}" wx:key="{{t}}">{{item.catname}}</view>
+    </scroll-view>
+  </view>
+  <view class='groupRight'>
+    <scroll-view class="listScroll" style="height: {{clientHeight?clientHeight+'px':'auto'}}" scroll-y="true" bindscrolltolower="loadMore">
+      <view class='groupItem' wx:for="{{groupList}}" wx:key="{{t}}">
+        <image class='groupThum' src='{{item.thumb}}'></image>
+        <view class='groupIfo'>
+          <view class='groupName'>{{item.title}}</view>
+          <view class='groupDesc'>{{item.content}}</view>
+        </view>
+        <view class='groupJoin'>加入</view>
+      </view>
+     
+    </scroll-view>
+  </view>
+</view>

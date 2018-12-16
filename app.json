@@ -3,13 +3,15 @@
     "pages/index/index",
     "pages/detail/detail",
     "pages/user/user",
-    "pages/auth/auth",
-    "pages/reg/reg"
+    "pages/login/login",
+    "pages/group/group",
+    "pages/mygroup/mygroup",
+    "pages/groupdetail/groupdetail"
   ],
   "window":{
     "backgroundTextStyle":"light",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "花生圈",
+    "navigationBarTitleText": "正农网",
     "navigationBarTextStyle":"black"
   },
   "tabBar": {

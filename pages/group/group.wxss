@@ -1,0 +1,75 @@
+.container{
+  width: 100%;
+}
+.groupLeft{
+  width: 100rpx;
+  height: 100vh;
+  float: left;
+  border-right: 1rpx solid #00923f;
+}
+.groupRight{
+  width: 649rpx;
+  float: left;
+}
+.groupLeft .groupBtn{
+  width: 95rpx;
+  margin-left: 5rpx;
+  height: 95rpx;
+  text-align: center;
+  line-height: 95rpx;
+  color: #a4a4a4;
+  font-size: 30rpx;
+}
+.groupLeft .groupBtnCur{
+  background: #00923f;
+  color: #fff;
+}
+.groupRight .groupItem{
+  padding: 20rpx 14rpx 20rpx 30rpx;
+  height: 100rpx;
+  width: 605rpx;
+  overflow: hidden;
+}
+.groupRight .groupItem .groupThum{
+  width: 100rpx;
+  height: 100rpx;
+  float: left;
+  border-radius: 100%;
+}
+.groupRight .groupItem .groupIfo{
+  width: 350rpx;
+  height: 100rpx;
+  float: left;
+  padding-left: 20rpx;
+}
+.groupRight .groupItem .groupIfo .groupName{
+  font-size: 36rpx;
+  color: #333;
+  width: 100%;
+  height: 50rpx;
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space: nowrap;
+}
+.groupRight .groupItem .groupIfo .groupDesc{
+  font-size: 28rpx;
+  color: #999;
+  padding-top: 8rpx;
+  width: 100%;
+  height: 45rpx;
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space: nowrap;
+}
+.groupJoin{
+  width: 100rpx;
+  height: 55rpx;
+  line-height: 55rpx;
+  text-align: center;
+  border: 1rpx solid #00923f;
+  border-radius: 5rpx;
+  color: #00923f;
+  font-size: 30rpx;
+  float: right;
+  margin-top: 20rpx;
+}

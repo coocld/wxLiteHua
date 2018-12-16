@@ -1,0 +1,24 @@
+<!--index.wxml-->
+<view class="container">
+  <view class='myGroup'>
+      <view class='myJoin'>加入的圈子</view>
+      <view class='groupItem' wx:for="{{joinList}}" wx:key="{{t}}">
+        <image class='groupThum' src='{{item.groupthumb}}'></image>
+        <view class='groupIfo'>
+          <view class='groupName'>{{item.groupname}}</view>
+          <view class='groupDesc'>{{item.groupdesc}}</view>
+        </view>
+      </view>
+      <view class='nodata' wx:if="{{noJoinList}}">你还没有加入圈子</view>
+
+      <view class='myJoin'>创建的圈子</view>
+      <view class='groupItem' wx:for="{{buildList}}" wx:key="{{t}}">
+        <image class='groupThum' src='{{item.thumb}}'></image>
+        <view class='groupIfo'>
+          <view class='groupName'>{{item.title}}</view>
+          <view class='groupDesc'>{{item.content}}</view>
+        </view>
+      </view>
+      <view class='nodata' wx:if="{{noBuildList}}">你还没有创建圈子</view>
+  </view>
+</view>

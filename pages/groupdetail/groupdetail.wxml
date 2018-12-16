@@ -1,0 +1,39 @@
+<!--index.wxml-->
+<view class="container">
+  <scroll-view style="height: {{clientHeight?clientHeight+'px':'auto'}}" scroll-y="true" bindscrolltolower="loadMore">
+    <view class='groupDetail'>
+      <view class='groupInfo'>
+        <image class='groupthumb' src='{{groupDetail.thumb}}'></image>
+        <view class='groupInfoText'>
+          <view class='name'>{{groupDetail.title}}</view>
+          <view class='desc'>{{groupDetail.content}}</view>
+        </view>
+      </view>
+      <view class='groupData'>
+        <view class='groupOwner dataItem'>创建者：{{groupDetail.username}}</view>
+        <view class='groupFans dataItem'>圈成员：{{groupDetail.fans}}</view>
+        <view class='groupPost dataItem'>帖子数：{{groupDetail.post}}</view>
+      </view>
+      <button type="primary" class='joinGroup'>加入圈子</button>
+    </view>
+    <view class='cardList'>
+      <view class='item' wx:for="{{groupCardList}}" wx:key="{{t}}">
+          <view class='head'>
+            <image class='avatar' src='{{item.wxheadimgurl?item.wxheadimgurl:item.avatar}}'></image>
+            <text class='username'>{{item.username}}</text>
+          </view>
+          <navigator class='cont' url='/pages/detail/detail?itemid={{item.itemid}}&gid={{item.gid}}'>
+            <view class='title'>{{item.title}}</view>
+            <view class='desc'>{{item.introduce}}</view>
+            <view class='thumb' wx:if="{{item.thumb}}"><image class='thumbImg' src="{{item.thumb}}"></image></view>
+            <view class='info'>
+              <text class='n'>{{groupDetail.title}}</text>
+              <text class='v'>阅读{{item.hits}}</text>
+              <text class='r'>回复{{item.reply}}</text>
+            </view>
+          </navigator>
+        </view>
+        <view class='moreText'>{{moreText}}</view>
+      </view>
+  </scroll-view>
+</view>
