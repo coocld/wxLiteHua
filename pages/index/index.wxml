@@ -38,13 +38,16 @@
             <view class='desc'>{{item.introduce}}</view>
             <view class='thumb' wx:if="{{item.thumb}}"><image class='thumbImg' src="{{item.thumb}}"></image></view>
             <view class='info'>
-              <text class='n'>{{item.gname}}</text>
-              <text class='v'>阅读{{item.hits}}</text>
-              <text class='r'>回复{{item.reply}}</text>
+              <text class='n'><text class='g-icon'></text>{{item.gname}}</text>
+              <text class='v'><text class='v-icon'></text>{{item.hits}}</text>
+              <text class='r'><text class='r-icon'></text>{{item.reply}}</text>
             </view>
           </navigator>
         </view>
-        <view class='moreText'>{{moreText}}</view>
+        <view class='moreText'>
+          <text wx:if="{{hasMore}}" class='loading'></text>
+          {{moreText}}
+        </view>
     </view>
   </scroll-view>
 </view>

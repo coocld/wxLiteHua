@@ -29,7 +29,7 @@ Page({
     this.getGroupDetail();
     this.getCardList(offset);
   },
-  getGroupDetail: function () {//获取圈子分类
+  getGroupDetail: function () {
     let that = this
     wx.request({
       url: app.globalData.apiUrl + '/api/v2/club/groupDetail.php?itemid='+this.data.gid,
@@ -54,10 +54,22 @@ Page({
       data: data,
       header: { 'content-type': 'application/json' },
       success(res) {
-        that.setData({
-          groupCardList: res.data.data,
-          total: res.data.pages.total
-        })
+        if(res.data.data.length<1){
+          that.setData({
+            moreText: "暂无内容"
+          })
+        } else if (res.data.data.length < 3){
+          that.setData({
+            moreText: "无更多数据",
+            groupCardList: res.data.data,
+            total: res.data.pages.total
+          })
+        }else{
+          that.setData({
+            groupCardList: res.data.data,
+            total: res.data.pages.total
+          })
+        }
       }
     })
   },

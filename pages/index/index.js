@@ -15,7 +15,8 @@ Page({
     duration: 500,
     moreText: '加载更多...',
     total: 0,
-    clientHeight:''
+    clientHeight:'',
+    hasMore: true
   },
   onLoad: function () {
     let that =this
@@ -106,6 +107,7 @@ Page({
     }else{
       this.setData({
         moreText: '无更多数据',
+        hasMore: false
       })
     }
   }

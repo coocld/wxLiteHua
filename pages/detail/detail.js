@@ -11,9 +11,10 @@ Page({
     dataTime: '',
     replyList:[],
     content:'',
-    moreText: '加载更多...',
+    moreText: '加载更多',
     total: 0,
-    clientHeight: ''
+    clientHeight: '',
+    hasMore: true
   },
   // onShow: function () {
   //   offset = 0
@@ -71,6 +72,7 @@ Page({
         if (res.data.data.length<1){
           that.setData({
             moreText: '暂无评论，赶紧抢个沙发',
+            hasMore: false
           })
         }else{
           that.setData({
@@ -112,6 +114,7 @@ Page({
     } else {
       this.setData({
         moreText: '无更多评论',
+        hasMore: false
       })
     }
   },

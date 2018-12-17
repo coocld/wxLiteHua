@@ -9,8 +9,7 @@
       <navigator url='/pages/mygroup/mygroup' class='myGroupItem'>我的圈子<text class='rightIcon'></text></navigator>
     </view>
     <view class='userItem' >
-      <navigator url='##' class='myGroupItem'>
-      我的帖子
+      <navigator url='##' class='myGroupItem'>我的帖子
       <text class='rightIcon'></text>
       </navigator>
     </view>

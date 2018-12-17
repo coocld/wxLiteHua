@@ -36,6 +36,7 @@
 .tinfo .group{
   float: right;
   display: inline-block;
+  color: #00923f;
 }
 .context{
   padding: 30rpx;
@@ -58,7 +59,7 @@
   text-align: center;
   border-bottom: 1px solid #00923f;
   position: absolute;
-  top: -10rpx;
+  top: -13rpx;
 }
 .replyList{
   margin-top: 20rpx;

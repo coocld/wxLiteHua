@@ -5,3 +5,66 @@
 .navigator-hover {
   background-color:#fff;
 }
+.loading{
+  display: inline-block;
+  width: 30rpx;
+  height: 30rpx;
+  position: relative;
+  top: 4rpx;
+  background: url('https://www.cnnma.com/public/loading.gif') no-repeat;
+  background-size: 100% 100%;
+}
+.g-icon{
+  display: inline-block;
+  width: 30rpx;
+  height: 30rpx;
+  position: relative;
+  top: 5rpx;
+  background: url('https://www.cnnma.com/public/group.png') no-repeat;
+  background-size: 100% 100%;
+}
+.g-g-icon{
+  display: inline-block;
+  width: 30rpx;
+  height: 30rpx;
+  position: relative;
+  top: 5rpx;
+  background: url('https://www.cnnma.com/public/g-g-icon.png') no-repeat;
+  background-size: 100% 100%;
+}
+.v-icon{
+  display: inline-block;
+  width: 30rpx;
+  height: 30rpx;
+  position: relative;
+  top: 5rpx;
+  background: url('https://www.cnnma.com/public/view.png') no-repeat;
+  background-size: 100% 100%;
+}
+.r-icon{
+  display: inline-block;
+  width: 30rpx;
+  height: 30rpx;
+  position: relative;
+  top: 5rpx;
+  background: url('https://www.cnnma.com/public/reply.png') no-repeat;
+  background-size: 100% 100%;
+}
+.d-icon{
+  display: inline-block;
+  width: 25rpx;
+  height: 25rpx;
+  position: relative;
+  top: 5rpx;
+  background: url('https://www.cnnma.com/public/d-icon.png') no-repeat;
+  background-size: 100% 100%;
+}
+.l-icon{
+  display: inline-block;
+  width: 30rpx;
+  height: 30rpx;
+  position: relative;
+  top: 5rpx;
+  background: url('https://www.cnnma.com/public/l-icon.png') no-repeat;
+  background-size: 100% 100%;
+}

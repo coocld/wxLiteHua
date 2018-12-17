@@ -10,9 +10,9 @@
     </view>
     <view class='detailTitle'>{{detail.title}}</view>
     <view class='tinfo'>
-      <text class='view'>查看：{{detail.hits}}</text>
-      <text class='data'>时间：{{dataTime}}</text>
-      <navigator url='#' class='group'>{{detail.gname}}</navigator>
+      <text class='view'><text class='v-icon'></text>{{detail.hits}}</text>
+      <text class='data'><text class='d-icon'></text>{{dataTime}}</text>
+      <navigator url="/pages/groupdetail/groupdetail?gid={{detail.gid}}" class='group'><text class='g-g-icon'></text>{{detail.gname}}</navigator>
     </view>
     <view class='context'>
       <rich-text nodes="{{detail.content}}"></rich-text>
@@ -33,13 +33,16 @@
             <rich-text nodes="{{item.content}}"></rich-text>
           </view>
           <view class='itemBot'>
-            <text class='ted datatime'>{{item.datatime}}</text>
-            <text class='ted adds'>{{item.wxcity?item.wxcity:item.areaname}}</text>
+            <text class='ted datatime'><text class='d-icon'></text>{{item.datatime}}</text>
+            <text class='ted adds'><text class='l-icon'></text>{{item.wxcity?item.wxcity:item.areaname}}</text>
             <!-- <text class='ted replyComm'>回复</text> -->
           </view>
         </view>
       </view>
-      <view class='moreText'>{{moreText}}</view>
+      <view class='moreText'>
+        <text wx:if="{{hasMore}}" class='loading'></text>
+        {{moreText}}
+      </view>
     </view>
      
   </scroll-view>

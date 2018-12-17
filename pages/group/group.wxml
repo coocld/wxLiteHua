@@ -8,11 +8,13 @@
   <view class='groupRight'>
     <scroll-view class="listScroll" style="height: {{clientHeight?clientHeight+'px':'auto'}}" scroll-y="true" bindscrolltolower="loadMore">
       <view class='groupItem' wx:for="{{groupList}}" wx:key="{{t}}">
-        <image class='groupThum' src='{{item.thumb}}'></image>
-        <view class='groupIfo'>
-          <view class='groupName'>{{item.title}}</view>
-          <view class='groupDesc'>{{item.content}}</view>
-        </view>
+        <navigator url="/pages/groupdetail/groupdetail?gid={{item.itemid}}">
+          <image class='groupThum' src='{{item.thumb}}'></image>
+          <view class='groupIfo'>
+            <view class='groupName'>{{item.title}}</view>
+            <view class='groupDesc'>{{item.content}}</view>
+          </view>
+        </navigator>
         <view class='groupJoin'>加入</view>
       </view>
      

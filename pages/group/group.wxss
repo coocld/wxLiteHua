@@ -1,6 +1,9 @@
 .container{
   width: 100%;
+  height: 100%;
+  position: fixed;
 }
+
 .groupLeft{
   width: 100rpx;
   height: 100vh;

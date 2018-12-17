@@ -44,7 +44,7 @@
 .cardList .item .cont .info{
   padding-top: 20rpx;
   color: #999;
-  font-size: 30rpx;
+  font-size: 26rpx;
 }
 .cardList .item .cont .r{
   float: right;
