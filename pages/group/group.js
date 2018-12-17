@@ -46,12 +46,37 @@ Page({
     catid = catid ? catid : "4144";
     let that = this;
     wx.request({
-      url: app.globalData.apiUrl + '/api/v2/club/groupAll.php?catid=' + catid,
+      url: app.globalData.apiUrl + '/api/v2/club/groupAll.php',
       header: { 'content-type': 'application/json' },
+      data: {
+        "catid": catid,
+        "username": wx.getStorageSync('phoneObj')
+      },
       success(res) {
         that.setData({
           groupList: res.data.data
         })
+      }
+    })
+  },
+  joinGroup: function (e) {
+    wx.request({
+      url: app.globalData.apiUrl + '/api/v2/club/joinGroup.php',
+      header: { 'content-type': 'application/json' },
+      method: 'POST',
+      data: {
+        "gid": e.target.id,
+        "username": wx.getStorageSync('phoneObj'),
+        "passport": wx.getStorageSync('userInfo').nickName,
+        "status":3
+      },
+      success(res) {
+        if(res.data.data){
+          wx.showToast({
+            "title": "加入成功",
+            "icon": "success"
+          })
+        }
       }
     })
   },

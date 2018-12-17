@@ -76,3 +76,15 @@
   float: right;
   margin-top: 20rpx;
 }
+.groupJoined{
+  width: 100rpx;
+  height: 55rpx;
+  line-height: 55rpx;
+  text-align: center;
+  border: 1rpx solid #999;
+  border-radius: 5rpx;
+  color: #999;
+  font-size: 30rpx;
+  float: right;
+  margin-top: 20rpx;
+}

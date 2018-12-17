@@ -15,7 +15,8 @@
             <view class='groupDesc'>{{item.content}}</view>
           </view>
         </navigator>
-        <view class='groupJoin'>加入</view>
+        <view class='groupJoined' wx:if="{{item.isjoin}}">已加入</view>
+        <view class='groupJoin' id='{{item.itemid}}' ontap="joinGroup" wx:else>已加</view>
       </view>
      
     </scroll-view>
