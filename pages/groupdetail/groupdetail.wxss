@@ -121,3 +121,9 @@
   font-size: 36rpx;
   margin-top: 30rpx;
 }
+.outGroup{
+  height: 90rpx;
+  line-height: 90rpx;
+  font-size: 36rpx;
+  margin-top: 30rpx;
+}

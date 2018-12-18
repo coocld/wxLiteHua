@@ -82,10 +82,10 @@
 					"query": ""
 				},
 				{
-					"id": -1,
+					"id": 7,
 					"name": "groupdetail",
 					"pathName": "pages/groupdetail/groupdetail",
-					"query": ""
+					"query": "gid=1"
 				}
 			]
 		}

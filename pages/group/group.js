@@ -1,7 +1,6 @@
 //index.js
 //获取应用实例
 const app = getApp()
-
 Page({
   data: {
     clientHeight: '',
@@ -43,7 +42,7 @@ Page({
     })
   },
   getGroupList: function (catid) {//获取圈子列表
-    catid = catid ? catid : "4144";
+    catid = catid ? catid : '4128';
     let that = this;
     wx.request({
       url: app.globalData.apiUrl + '/api/v2/club/groupAll.php',
@@ -60,6 +59,13 @@ Page({
     })
   },
   joinGroup: function (e) {
+    let that = this;
+    if (!wx.getStorageSync('phoneObj')) {
+      wx.switchTab({
+        url: '/pages/user/user'
+      })
+      return false;
+    }
     wx.request({
       url: app.globalData.apiUrl + '/api/v2/club/joinGroup.php',
       header: { 'content-type': 'application/json' },
@@ -71,9 +77,23 @@ Page({
         "status":3
       },
       success(res) {
-        if(res.data.data){
+        if(res.data.code == '200'){
           wx.showToast({
             "title": "加入成功",
+            "icon": "success"
+          })
+          that.getGroupList();
+          that.setData({
+            onCateid: '4128'
+          })
+        } else if (res.data.code == '300'){
+          wx.showToast({
+            "title": "你已加入",
+            "icon": "success"
+          })
+        }else{
+          wx.showToast({
+            "title": "加入失败",
             "icon": "success"
           })
         }

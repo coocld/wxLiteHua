@@ -14,7 +14,8 @@
         <view class='groupFans dataItem'>圈成员：{{groupDetail.fans}}</view>
         <view class='groupPost dataItem'>帖子数：{{groupDetail.post}}</view>
       </view>
-      <button type="primary" class='joinGroup'>加入圈子</button>
+      <button type="primary" class='joinGroup' wx:if="{{!isJoin}}" ontap="joinGroup">加入圈子</button>
+      <button type="default" class='outGroup' wx:else ontap="outGroup">退出圈子</button>
     </view>
     <view class='cardList'>
       <view class='item' wx:for="{{groupCardList}}" wx:key="{{t}}">
