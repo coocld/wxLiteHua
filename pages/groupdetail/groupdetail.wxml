@@ -1,6 +1,6 @@
 <!--index.wxml-->
 <view class="container">
-  <scroll-view style="height: {{clientHeight?clientHeight+'px':'auto'}}" scroll-y="true" bindscrolltolower="loadMore">
+  <scroll-view style="height: {{clientHeight?clientHeight+'px':'auto'}}" scroll-y="true" bindscrolltolower="loadMore" enable-back-to-top="true">
     <view class='groupDetail'>
       <view class='groupInfo'>
         <image class='groupthumb' src='{{groupDetail.thumb}}'></image>

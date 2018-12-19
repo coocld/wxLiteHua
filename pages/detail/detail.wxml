@@ -1,6 +1,6 @@
 <!--logs.wxml-->
 <view class="container">
-  <scroll-view class="listScroll" style="height: {{clientHeight?clientHeight+'px':'auto'}}" scroll-y="true" bindscrolltolower="loadMore">
+  <scroll-view class="listScroll" style="height: {{clientHeight?clientHeight+'px':'auto'}}" scroll-y="true" bindscrolltolower="loadMore" enable-back-to-top="true">
     <view class='detailHead'>
       <image class='avatar' src='{{detail.wxheadimgurl?detail.wxheadimgurl:detail.avatar}}'></image>
       <view class='uinfo'>
@@ -16,6 +16,11 @@
     </view>
     <view class='context'>
       <rich-text nodes="{{detail.content}}"></rich-text>
+      <view class='detailBotm'>
+        <text class='replyNum' ontap="addReplyBtn"><text class='reply-icon'></text>{{total}}</text>
+        <text class='replyNum' ontap="likeBtnMe" wx:if="{{!isliked}}"><text class='like-icon'></text>{{likedNum}}</text>
+        <text class='replyNum likec' ontap="likedBtn" wx:else><text class='likec-icon'></text>{{likedNum}}</text>
+      </view>
     </view>
     <view class='reply'>
       <view class='replyHead'><text class='title'>全部回帖</text></view>

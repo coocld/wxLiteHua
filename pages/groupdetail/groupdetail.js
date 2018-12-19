@@ -11,7 +11,8 @@ Page({
     moreText: '加载更多...',
     total: 0,
     clientHeight: '',
-    isJoin: true
+    isJoin: true,
+    index:0
   },
   //事件处理函数
   
@@ -25,7 +26,8 @@ Page({
       }
     });
     this.setData({
-      gid: options.gid
+      gid: options.gid,
+      index: options.index
     });
     this.getGroupDetail();
     this.getCardList(offset);
@@ -160,6 +162,10 @@ Page({
           that.setData({
             isJoin: true
           })
+          app.store.$state.groupList[that.data.index].isjoin = true
+          app.store.setState({
+            groupList: app.store.$state.groupList
+          });
         } else if (res.data.code == '300') {
           wx.showToast({
             "title": "你已加入",
@@ -202,6 +208,10 @@ Page({
           that.setData({
             isJoin: false
           })
+          app.store.$state.groupList[that.data.index].isjoin = false
+          app.store.setState({
+            groupList: app.store.$state.groupList
+          });
         } else {
           wx.showToast({
             "title": "退出失败",

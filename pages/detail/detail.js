@@ -13,8 +13,11 @@ Page({
     content:'',
     moreText: '加载更多',
     total: 0,
+    likedNum: 0,
     clientHeight: '',
-    hasMore: true
+    hasMore: true,
+    focus: false,
+    isliked: false
   },
   // onShow: function () {
   //   offset = 0
@@ -36,6 +39,11 @@ Page({
     this.getDetail()
     offset = 0
     this.getReplyList()
+    if (wx.getStorageSync("liked" + options.itemid)) {
+      this.setData({
+        isliked: true
+      })
+    }
   },
   getDetail: function () {//detail
     let that = this
@@ -51,7 +59,8 @@ Page({
       success(res) {
         that.setData({
           detail: res.data.data,
-          dataTime: util.formatTime(res.data.data.edittime)
+          dataTime: util.formatTime(res.data.data.edittime),
+          likedNum: res.data.data.liked
         })
       }
     })
@@ -196,5 +205,50 @@ Page({
         })
       }
     }
+  },
+  addReplyBtn: function(){
+    this.setData({
+      focus: true
+    })
+  },
+  likedBtn: function(){
+    wx.showToast({
+      "title": "你已点过赞咯"
+    });
+  },
+  likeBtnMe: function(){
+    let that = this
+    let data = {
+      "itemid": this.data.itemid
+    }
+    wx.request({
+      url: app.globalData.apiUrl + '/api/v2/club/upLike.php',
+      method: 'POST',
+      data: JSON.stringify(data),
+      header: { 'content-type': 'application/json' },
+      success(res) {
+        if (res.data.code == 200) {
+          // wx.showToast({
+          //   "title": "点赞成功",
+          //   "icon": "success"
+          // })
+          that.setData({
+            isliked: true,
+            likedNum: parseInt(parseInt(that.data.likedNum)+1)
+          })
+          wx.setStorage({
+            key: "liked" + that.data.itemid,
+            data: true,
+          })
+        } else {
+          wx.showToast({
+            "title": "点赞失败"
+          });
+          that.setData({
+            isliked: false
+          })
+        }
+      }
+    })
   }
 })

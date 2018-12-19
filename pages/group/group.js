@@ -42,7 +42,7 @@ Page({
     })
   },
   getGroupList: function (catid) {//获取圈子列表
-    catid = catid ? catid : '4128';
+    catid = catid ? catid : '4248';
     let that = this;
     wx.request({
       url: app.globalData.apiUrl + '/api/v2/club/groupAll.php',
@@ -52,9 +52,9 @@ Page({
         "username": wx.getStorageSync('phoneObj')
       },
       success(res) {
-        that.setData({
+        app.store.setState({
           groupList: res.data.data
-        })
+        });
       }
     })
   },
@@ -66,6 +66,10 @@ Page({
       })
       return false;
     }
+    app.store.$state.groupList[e.target.dataset.index].isjoin = true
+    app.store.setState({
+      groupList: app.store.$state.groupList
+    });
     wx.request({
       url: app.globalData.apiUrl + '/api/v2/club/joinGroup.php',
       header: { 'content-type': 'application/json' },
@@ -81,10 +85,6 @@ Page({
           wx.showToast({
             "title": "加入成功",
             "icon": "success"
-          })
-          that.getGroupList();
-          that.setData({
-            onCateid: '4128'
           })
         } else if (res.data.code == '300'){
           wx.showToast({

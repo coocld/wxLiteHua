@@ -18,6 +18,9 @@ Page({
     clientHeight:'',
     hasMore: true
   },
+  onPullDownRefresh: function () {
+    this.getSlide()
+  },
   onLoad: function () {
     let that =this
     wx.getSystemInfo({
@@ -109,6 +112,22 @@ Page({
         moreText: '无更多数据',
         hasMore: false
       })
+    }
+  },
+  onShareAppMessage: function (res) {
+    if (res.from === 'button') {
+      // 来自页面内转发按钮
+      console.log(res.target)
+    }
+    return {
+      title: '花生圈-中国花生交易商的交流圈子',
+      path: '/pages/index/index',
+      success: function (res) {
+        // 转发成功
+      },
+      fail: function (res) {
+        // 转发失败
+      }
     }
   }
   

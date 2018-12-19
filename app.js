@@ -1,4 +1,10 @@
 //app.js
+const Store = require('utils/store.js');
+let store = new Store({
+  state: {
+    groupList: []
+  }
+})
 App({
   onLaunch: function () {
     // 展示本地存储能力
@@ -38,5 +44,6 @@ App({
   globalData: {
     userInfo: null,
     apiUrl: 'https://www.cnnma.com'
-  }
+  },
+  store: store
 })

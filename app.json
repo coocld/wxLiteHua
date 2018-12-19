@@ -11,7 +11,7 @@
   "window":{
     "backgroundTextStyle":"light",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "正农网",
+    "navigationBarTitleText": "花生圈",
     "navigationBarTextStyle":"black"
   },
   "tabBar": {
@@ -22,6 +22,12 @@
         "text": "首页",
         "iconPath": "images/home.png",
         "selectedIconPath": "images/homec.png"
+      },
+      {
+        "pagePath": "pages/group/group",
+        "text": "圈子",
+        "iconPath": "images/group.png",
+        "selectedIconPath": "images/groupc.png"
       },
       {
         "pagePath": "pages/user/user",

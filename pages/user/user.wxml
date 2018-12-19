@@ -17,7 +17,7 @@
       <navigator url='##' class='myGroupItem'>我的回复<text class='rightIcon'></text></navigator>
     </view>
     <view class='userItem' >
-      <navigator url='##' class='myGroupItem'>我的名片<text class='rightIcon'></text></navigator>
+      <navigator url='##' class='myGroupItem'>花生名片<text class='rightIcon'></text></navigator>
     </view>
   </block>
 

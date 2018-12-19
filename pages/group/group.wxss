@@ -15,7 +15,7 @@
   float: left;
 }
 .groupLeft .groupBtn{
-  width: 95rpx;
+  width: 96rpx;
   margin-left: 5rpx;
   height: 95rpx;
   text-align: center;
