@@ -55,7 +55,7 @@
     <view class='replyFormCont'>
        <textarea bindinput="bindTextAreaBlur" placeholder="评论能带来好运" placeholder-style="color:#ccc;" fixed="true" focus="{{focus}}" auto-height cursor-spacing="15" value='{{content}}' />
     </view>
-    <view class='btn repBtn' bindtap="repBtnMsg">回复</view>
+    <view class='{{isreplyBtnc ? "btn repBtnc" : "btn repBtn" }}' bindtap="repBtnMsg">回复</view>
   </view>
 
 </view>

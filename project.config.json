@@ -85,7 +85,7 @@
 					"id": 7,
 					"name": "groupdetail",
 					"pathName": "pages/groupdetail/groupdetail",
-					"query": "gid=1"
+					"query": "gid=1&index=0"
 				}
 			]
 		}

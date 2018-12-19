@@ -17,7 +17,8 @@ Page({
     clientHeight: '',
     hasMore: true,
     focus: false,
-    isliked: false
+    isliked: false,
+    isreplyBtnc: false
   },
   // onShow: function () {
   //   offset = 0
@@ -131,6 +132,15 @@ Page({
     this.setData({
       content: e.detail.value
     })
+    if (e.detail.value.length >= 4) {
+      this.setData({
+        isreplyBtnc: true
+      })
+    } else {
+      this.setData({
+        isreplyBtnc: false
+      })
+    }
   },
   repBtnMsg: function () {
     this.upReply()

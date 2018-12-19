@@ -37,4 +37,5 @@
         <view class='moreText'>{{moreText}}</view>
       </view>
   </scroll-view>
+  <view class='postCard' ontap="postCard"></view>
 </view>

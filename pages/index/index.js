@@ -60,6 +60,9 @@ Page({
     })
   },
   getToplist: function (offset) {//toplist
+    wx.showLoading({
+      title: '加载中...',
+    })
     let that = this
     let data = {
       offset: offset,
@@ -76,6 +79,7 @@ Page({
           topList: res.data.data,
           total: res.data.pages.total
         })
+        wx.hideLoading()
       }
     })
   },

@@ -162,10 +162,12 @@ Page({
           that.setData({
             isJoin: true
           })
-          app.store.$state.groupList[that.data.index].isjoin = true
-          app.store.setState({
-            groupList: app.store.$state.groupList
-          });
+          if (app.store.$state.groupList){
+            app.store.$state.groupList[that.data.index].isjoin = true
+            app.store.setState({
+              groupList: app.store.$state.groupList
+            });
+          }
         } else if (res.data.code == '300') {
           wx.showToast({
             "title": "你已加入",
@@ -208,10 +210,12 @@ Page({
           that.setData({
             isJoin: false
           })
-          app.store.$state.groupList[that.data.index].isjoin = false
-          app.store.setState({
-            groupList: app.store.$state.groupList
-          });
+          if (app.store.$state.groupList){
+            app.store.$state.groupList[that.data.index].isjoin = false
+            app.store.setState({
+              groupList: app.store.$state.groupList
+            });
+          }
         } else {
           wx.showToast({
             "title": "退出失败",
@@ -220,6 +224,9 @@ Page({
         }
       }
     })
+  },
+  postCard: function(){
+    
   }
     
 })
