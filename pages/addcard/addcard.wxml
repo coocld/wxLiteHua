@@ -2,7 +2,7 @@
 <view class="container">
   <view class='addcard'>
     <view class="cardTitle">
-      <input placeholder="混圈子主要靠标题！（必填）" />
+      <input value='{{title}}' bindinput='inputTitle' bindblur="outBlur" placeholder="混圈子主要靠标题！（必填）" />
     </view>
     <textarea class='input_view' maxlength='-1' auto-height='true' bindinput='inputCon' style='width:{{width-20}}px;' value='{{firstCon}}' placeholder='我是正文，请正经对待（不少于5个字）' bindblur="outBlur" id='0'  />
     <view wx:for="{{dataList}}" style='background-color:white;' wx:key="{{t}}">

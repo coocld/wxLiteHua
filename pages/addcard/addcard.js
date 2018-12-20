@@ -3,6 +3,7 @@ var app = getApp()
 var list = []
 Page({
   data: {
+    title: '',
     content: '',
     height: 500,
     width: 320,
@@ -26,6 +27,11 @@ Page({
       },
       fail: function (res) { },
       complete: function (res) { },
+    })
+  },
+  inputTitle: function (e) {
+    this.setData({
+      title: e.detail.value
     })
   },
   /**
@@ -133,6 +139,30 @@ Page({
     })
   },
   postCard: function(){
+    console.log(this.data.title)
+    console.log(this.data.firstCon)
     console.log(this.data.dataList)
+    let content = '<div>ddd<p style="width:100px">ddddrrr444</p></div><img src="dd"/>';
+    let data = {
+      catid: 4249,
+      gid: 4158,
+      username: "13871578291",
+      passport: "涂洋",
+      title: "测试标题",
+      content: content,
+      status: 3
+    }
+
+    wx.request({
+      url: 'https://www.cnnma.com/api/v2/club/addCard.php', // 仅为示例，并非真实的接口地址
+      data: JSON.stringify(data),
+      method: 'POST',
+      header: {
+        'content-type': 'application/json' // 默认值
+      },
+      success(res) {
+        console.log(res.data)
+      }
+    })
   }
 })
