@@ -1,0 +1,41 @@
+.container{
+  border-top: 1px solid #f0f0f0;
+  width: 100%;
+  overflow: hidden;
+}
+ .addcard{
+   padding: 30rpx;
+ }
+.input_view{
+  display: flex;
+  padding: 10px;
+  font-size: 28rpx;
+}
+.img_view{
+  display: flex;
+  padding: 4px;
+  background-color: white;
+  margin-left: 10px;
+  flex-direction: row;
+  align-items: flex-start;
+}
+.toWrite {
+  width:90rpx;
+  height:90rpx;
+  display: block;
+  background-size:cover;
+  position:fixed;
+  right:74rpx;
+  bottom:100rpx;
+  border-radius: 50%;
+  background-color: #cdcdcd;
+  opacity: 0.7;
+  z-index: 999;
+  border: 2rpx white solid;
+  box-shadow: 0rpx 0rpx 2rpx #f0f0f0;
+}
+.cardTitle{
+  height: 60rpx;
+  font-size: 30rpx;
+  border-bottom: 1px solid #f0f0f0;
+}

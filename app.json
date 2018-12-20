@@ -6,7 +6,8 @@
     "pages/login/login",
     "pages/group/group",
     "pages/mygroup/mygroup",
-    "pages/groupdetail/groupdetail"
+    "pages/groupdetail/groupdetail",
+    "pages/addcard/addcard"
   ],
   "window":{
     "backgroundTextStyle":"light",
