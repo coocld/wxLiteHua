@@ -60,7 +60,7 @@ Page({
       success(res) {
         that.setData({
           detail: res.data.data,
-          dataTime: util.formatTime(res.data.data.edittime),
+          dataTime: util.formatTime(res.data.data.addtime),
           likedNum: res.data.data.liked
         })
       }

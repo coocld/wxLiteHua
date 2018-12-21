@@ -43,6 +43,10 @@
   font-size: 34rpx;
   color: #666;
 }
+.context .main{
+  width: 100%;
+  overflow: hidden;
+}
 .reply{
   padding: 30rpx;
   padding-bottom: 100rpx;

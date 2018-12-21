@@ -11,9 +11,14 @@ Page({
     imageLength: 0,
     firstCon: '',
     dataList: [],
+    catid: 0,
+    gid:0
   },
   onLoad: function (options) {
-    let that = this
+    this.setData({
+      gid: options.gid,
+      catid: options.catid
+    });
   },
   onShow: function (e) {
     var that = this;
@@ -84,14 +89,25 @@ Page({
               sourceType: [choseType],
               count: 1,//每次添加一张
               success: function (res) {
-                var info = {
-                  pic: res.tempFilePaths[0],//存储本地地址
-                  temp: true,//标记是否是临时图片
-                  value: '',//存储图片下方相邻的输入框的内容
-                }
-                that.data.dataList.splice(that.data.imgIndex, 0, info);//方法自行百度
-                that.setData({
-                  dataList: that.data.dataList,
+                wx.showLoading({
+                  title: '图片上传中',
+                })
+                wx.uploadFile({
+                  url: app.globalData.apiUrl + '/api/v2/club/uploadphoto.php', // 仅为示例，非真实的接口地址
+                  filePath: res.tempFilePaths[0],
+                  name: 'uploaderInput',
+                  success: function(updata) {
+                    // console.log(JSON.parse(updata.data).url)
+                    var info = {
+                      pic: JSON.parse(updata.data).url,
+                      value: '',
+                    }
+                    that.data.dataList.push(info);//方法自行百度
+                    that.setData({
+                      dataList: that.data.dataList,
+                    })
+                    wx.hideLoading()
+                  }
                 })
               }
             })
@@ -139,29 +155,69 @@ Page({
     })
   },
   postCard: function(){
-    console.log(this.data.title)
-    console.log(this.data.firstCon)
-    console.log(this.data.dataList)
-    let content = '<div>ddd<p style="width:100px">ddddrrr444</p></div><img src="dd"/>';
+    console.log(this.data.title.length)
+    if (!wx.getStorageSync('phoneObj')) {
+      wx.navigateTo({
+        url: '/pages/login/login'
+      })
+      return false;
+    }
+    if (this.data.title.length<1){
+      wx.showModal({
+        content: '标题必填',
+        showCancel: false, //不显示取消按钮
+        confirmText: '确定'
+      })
+      return false;
+    }
+    if (this.data.firstCon.length<5) {
+      wx.showModal({
+        content: '内容必填，不少于五个字',
+        showCancel: false, //不显示取消按钮
+        confirmText: '确定'
+      })
+      return false;
+    }
+    let content = '<div>' + this.data.firstCon+'</div>';
+    for (let i = 0; i < this.data.dataList.length; i++){
+      content += '<div><img style="widrh:100%;height:auto" src="' + this.data.dataList[i].pic + '"/></div><p>' + this.data.dataList[i].value+'</p>'
+    }
     let data = {
-      catid: 4249,
-      gid: 4158,
-      username: "13871578291",
-      passport: "涂洋",
-      title: "测试标题",
+      catid: this.data.catid,
+      gid: this.data.gid,
+      username: wx.getStorageSync('phoneObj'),
+      passport: wx.getStorageSync('userInfo').nickName,
+      title: this.data.title,
       content: content,
       status: 3
     }
 
     wx.request({
-      url: 'https://www.cnnma.com/api/v2/club/addCard.php', // 仅为示例，并非真实的接口地址
+      url: app.globalData.apiUrl + '/api/v2/club/addCard.php', // 仅为示例，并非真实的接口地址
       data: JSON.stringify(data),
       method: 'POST',
       header: {
         'content-type': 'application/json' // 默认值
       },
       success(res) {
-        console.log(res.data)
+        if (res.data.code == '200'){
+          wx.showToast({
+            "title": "发帖成功",
+            "icon": "success"
+          })
+          setTimeout(function () { 
+            wx.navigateBack({
+              delta: 1
+            })
+           }, 1000);
+          
+        }else{
+          wx.showModal({
+            content: '发送失败，请重试',
+            showCancel: false, //不显示取消按钮
+            confirmText: '确定'
+          })
+        }
       }
     })
   }

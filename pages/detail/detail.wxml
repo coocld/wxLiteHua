@@ -15,11 +15,13 @@
       <navigator url="/pages/groupdetail/groupdetail?gid={{detail.gid}}" class='group'><text class='g-g-icon'></text>{{detail.gname}}</navigator>
     </view>
     <view class='context'>
-      <rich-text nodes="{{detail.content}}"></rich-text>
-      <view class='detailBotm'>
-        <text class='replyNum' ontap="addReplyBtn"><text class='reply-icon'></text>{{total}}</text>
-        <text class='replyNum' ontap="likeBtnMe" wx:if="{{!isliked}}"><text class='like-icon'></text>{{likedNum}}</text>
-        <text class='replyNum likec' ontap="likedBtn" wx:else><text class='likec-icon'></text>{{likedNum}}</text>
+      <view class='main'>
+        <rich-text nodes="{{detail.content}}"></rich-text>
+        <view class='detailBotm'>
+          <text class='replyNum' ontap="addReplyBtn"><text class='reply-icon'></text>{{total}}</text>
+          <text class='replyNum' ontap="likeBtnMe" wx:if="{{!isliked}}"><text class='like-icon'></text>{{likedNum}}</text>
+          <text class='replyNum likec' ontap="likedBtn" wx:else><text class='likec-icon'></text>{{likedNum}}</text>
+        </view>
       </view>
     </view>
     <view class='reply'>
