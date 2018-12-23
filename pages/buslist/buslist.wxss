@@ -37,9 +37,8 @@
 }
 .businfo .botime .business{
   width: 370rpx;
-  height: 130rpx;
+  height: 92rpx;
   overflow: hidden;
-  text-overflow: ellipsis;
 }
 .moreText{
   text-align: center;
