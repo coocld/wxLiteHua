@@ -7,7 +7,11 @@
     "pages/group/group",
     "pages/mygroup/mygroup",
     "pages/groupdetail/groupdetail",
-    "pages/addcard/addcard"
+    "pages/addcard/addcard",
+    "pages/mycardlist/mycardlist",
+    "pages/myreplylist/myreplylist",
+    "pages/buslist/buslist",
+    "pages/busdetail/busdetail"
   ],
   "window":{
     "backgroundTextStyle":"light",
@@ -29,6 +33,12 @@
         "text": "圈子",
         "iconPath": "images/group.png",
         "selectedIconPath": "images/groupc.png"
+      },
+      {
+        "pagePath": "pages/buslist/buslist",
+        "text": "商家",
+        "iconPath": "images/bus.png",
+        "selectedIconPath": "images/busc.png"
       },
       {
         "pagePath": "pages/user/user",

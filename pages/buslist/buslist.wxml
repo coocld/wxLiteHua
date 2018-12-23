@@ -1,0 +1,25 @@
+<!--index.wxml-->
+<view class="container">
+  <scroll-view class="listScroll" style="height: {{clientHeight?clientHeight+'px':'auto'}}" scroll-y="true" bindscrolltolower="loadMore" enable-back-to-top="true">
+      <view class='busList'>
+          <view class='item' wx:for="{{busList}}" wx:key="{{t}}">
+            <navigator url='/pages/busdetail/busdetail?userid={{item.userid}}'>
+              <image class='photo' src='{{item.thumb}}'></image>
+              <view class='businfo'>
+                <view class='company'>{{item.company}}</view>
+                <view class='botime'>
+                  <view class='regyear itc'>成立：{{item.regyear}}年</view>
+                  <view class='telephone itc'>联系：{{item.telephone}}</view>
+                  <view class='regcity itc'>城市：{{item.regcity}}</view>
+                  <view class='business'>经营：{{item.business}}</view>
+                </view>
+              </view>
+            </navigator>
+          </view>
+          <view class='moreText'>
+            <text wx:if="{{hasMore}}" class='loading'></text>
+            {{moreText}}
+          </view>
+      </view>
+  </scroll-view>
+</view>

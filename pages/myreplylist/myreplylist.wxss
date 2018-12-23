@@ -1,0 +1,81 @@
+/**index.wxss**/
+.container{
+  background: #f5f5f5;
+}
+.topList{
+  background: #fff;
+}
+.topList .item{
+  border-bottom: 1px solid #e5e5e5;
+  padding: 30rpx;
+}
+.topList .item .head{
+    height: 80rpx;
+    overflow: hidden;
+}
+.rigcon{
+  width: 300rpx;
+  float: left;
+  height: 80rpx;
+}
+.rigcon .username{
+    color: #333;
+    font-size: 34rpx;
+}
+.rigcon .datatime{
+    color: #666;
+    font-size: 28rpx;
+}
+.topList .item .cont{
+  display: block;
+  width: 670rpx;
+  overflow: hidden;
+}
+.topList .item .cont .title{
+  font-size: 38rpx;
+  color: #333;
+  padding: 20rpx 0;
+}
+.topList .item .cont .thumb{
+  width: 250rpx;
+  height: 150rpx;
+  overflow: hidden;
+  float: right;
+}
+.topList .item .cont .thumbImg{
+  width: 250rpx;
+  height: 150rpx;
+}
+.topList .moreText{
+  text-align: center;
+  color: #666;
+  font-size: 30rpx;
+  padding:40rpx; 
+}
+.topList .item .avatar{
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 100%;
+  float: left;
+  margin-right: 30rpx;
+}
+.replycont{
+  padding: 20rpx 0;
+  color: #333;
+  font-size: 38rpx;
+}
+.cont{
+  padding: 10rpx;
+  border: 1px solid #f5f5f5;
+}
+.conbox{
+  font-size: 34rpx;
+  color: #666;
+}
+.conname{
+  color: #00923f;
+}
+.hasthumb .conbox{
+  width: 420rpx;
+  float: left;
+}

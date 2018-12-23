@@ -21,7 +21,7 @@
       <view class='item' wx:for="{{groupCardList}}" wx:key="{{t}}">
           <view class='head'>
             <image class='avatar' src='{{item.wxheadimgurl?item.wxheadimgurl:item.avatar}}'></image>
-            <text class='username'>{{item.username}}</text>
+            <text class='username'>{{item.passport}}</text>
           </view>
           <navigator class='cont' url='/pages/detail/detail?itemid={{item.itemid}}&gid={{item.gid}}'>
             <view class='title'>{{item.title}}</view>

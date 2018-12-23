@@ -4,7 +4,7 @@
     <view class='detailHead'>
       <image class='avatar' src='{{detail.wxheadimgurl?detail.wxheadimgurl:detail.avatar}}'></image>
       <view class='uinfo'>
-        <view class='uname'>{{detail.username}} 楼主</view>
+        <view class='uname'>{{detail.passport}} 楼主</view>
         <view class='utag'>VIP{{detail.level}} {{detail.wxcity?detail.wxcity:detail.areaname}}</view>
       </view>
     </view>

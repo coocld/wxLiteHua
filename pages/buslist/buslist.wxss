@@ -1,0 +1,49 @@
+/**index.wxss**/
+.container{
+  background: #f5f5f5;
+}
+.busList{
+  margin-top: 1rpx;
+  background: #fff;
+}
+.busList .item{
+  border-bottom: 1px solid #e5e5e5;
+  width: 690rpx;
+  padding: 30rpx;
+  height: 300rpx;
+}
+.busList .item .photo{
+  width: 300rpx;
+  height: 300rpx;
+  float: left;
+}
+.businfo{
+  width: 370rpx;
+  float: right;
+}
+.businfo .company{
+  margin-top: -6rpx;
+  font-size: 34rpx;
+  font-weight: bold;
+  color: #333;
+  max-height: 90rpx;
+}
+.businfo .botime{
+  font-size: 32rpx;
+  color: #666;
+}
+.businfo .botime .itc{
+  height: 45rpx;
+}
+.businfo .botime .business{
+  width: 370rpx;
+  height: 100rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.moreText{
+  text-align: center;
+  color: #666;
+  font-size: 30rpx;
+  padding:40rpx; 
+}

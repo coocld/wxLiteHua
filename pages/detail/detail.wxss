@@ -187,3 +187,7 @@
 .likec{
   color: #00923f
 }
+rich-text .rich-img {
+  width: 100% ;
+  height: auto ;
+}

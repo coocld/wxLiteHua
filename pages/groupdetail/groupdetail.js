@@ -1,4 +1,3 @@
-//index.js
 //获取应用实例
 const app = getApp()
 let offset = 0
@@ -12,10 +11,15 @@ Page({
     total: 0,
     clientHeight: '',
     isJoin: true,
-    index:0
+    index:0,
+    isPageBack: false
   },
   //事件处理函数
-  
+  onShow: function(){
+    if (this.data.isPageBack){
+      this.getCardList(0);
+    }
+  },
   onLoad: function (options) {
     let that = this
     wx.getSystemInfo({
@@ -27,7 +31,7 @@ Page({
     });
     this.setData({
       gid: options.gid,
-      index: options.index
+      index: options.index ? options.index : 0
     });
     this.getGroupDetail();
     this.getCardList(offset);
@@ -162,7 +166,7 @@ Page({
           that.setData({
             isJoin: true
           })
-          if (app.store.$state.groupList){
+          if (that.data.index){
             app.store.$state.groupList[that.data.index].isjoin = true
             app.store.setState({
               groupList: app.store.$state.groupList
@@ -210,7 +214,7 @@ Page({
           that.setData({
             isJoin: false
           })
-          if (app.store.$state.groupList){
+          if (that.data.index){
             app.store.$state.groupList[that.data.index].isjoin = false
             app.store.setState({
               groupList: app.store.$state.groupList

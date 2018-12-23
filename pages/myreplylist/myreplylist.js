@@ -6,20 +6,12 @@ let pagesize = 20
 
 Page({
   data: {
-    imgUrls: [],
-    iconsList:[],
     topList:[],
-    indicatorDots: true,
-    autoplay: true,
-    interval: 3000,
-    duration: 500,
     moreText: '加载更多...',
     total: 0,
     clientHeight:'',
-    hasMore: true
-  },
-  onPullDownRefresh: function () {
-    this.getSlide()
+    hasMore: true,
+    userAvatarUrl:''
   },
   onLoad: function () {
     let that =this
@@ -30,33 +22,10 @@ Page({
         });
       }
     });
-    this.getSlide()
-    this.getIcons()
     offset = 0
     this.getToplist(offset)
-  },
-  getSlide: function () {//轮播
-    let that = this
-    wx.request({
-      url: app.globalData.apiUrl + '/api/v2/club/homeSlide.php',
-      header: {'content-type': 'application/json'},
-      success(res) {
-        that.setData({
-          imgUrls: res.data.data
-        })
-      }
-    })
-  },
-  getIcons: function () {//icons
-    let that = this
-    wx.request({
-      url: app.globalData.apiUrl + '/api/v2/club/homeClubGroup.php',
-      header: { 'content-type': 'application/json' },
-      success(res) {
-        that.setData({
-          iconsList: res.data.data
-        })
-      }
+    this.setData({
+      userAvatarUrl: wx.getStorageSync('userInfo').avatarUrl
     })
   },
   getToplist: function (offset) {//toplist
@@ -66,11 +35,12 @@ Page({
     let that = this
     let data = {
       offset: offset,
-      pagesize: pagesize
+      pagesize: pagesize,
+      username: wx.getStorageSync('phoneObj')
     }
     data = JSON.stringify(data)
     wx.request({
-      url: app.globalData.apiUrl + '/api/v2/club/homeTopList.php',
+      url: app.globalData.apiUrl + '/api/v2/club/myReplyList.php',
       method: 'POST',
       data: data,
       header: { 'content-type': 'application/json' },
@@ -87,11 +57,12 @@ Page({
     let that = this
     let data = {
       offset: offset,
-      pagesize: pagesize
+      pagesize: pagesize,
+      username: wx.getStorageSync('phoneObj')
     }
     data = JSON.stringify(data)
     wx.request({
-      url: app.globalData.apiUrl + '/api/v2/club/homeTopList.php',
+      url: app.globalData.apiUrl + '/api/v2/club/myReplyList.php',
       method: 'POST',
       data: data,
       header: { 'content-type': 'application/json' },
@@ -117,21 +88,6 @@ Page({
         hasMore: false
       })
     }
-  },
-  onShareAppMessage: function (res) {
-    if (res.from === 'button') {
-      // 来自页面内转发按钮
-      console.log(res.target)
-    }
-    return {
-      title: '花生圈-中国花生交易商的交流圈子',
-      path: '/pages/index/index',
-      success: function (res) {
-        // 转发成功
-      },
-      fail: function (res) {
-        // 转发失败
-      }
-    }
   }
+  
 })

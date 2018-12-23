@@ -9,16 +9,16 @@
       <navigator url='/pages/mygroup/mygroup' class='myGroupItem'>我的圈子<text class='rightIcon'></text></navigator>
     </view>
     <view class='userItem' >
-      <navigator url='##' class='myGroupItem'>我的帖子
+      <navigator url='/pages/mycardlist/mycardlist' class='myGroupItem'>我的帖子
       <text class='rightIcon'></text>
       </navigator>
     </view>
     <view class='userItem' >
-      <navigator url='##' class='myGroupItem'>我的回复<text class='rightIcon'></text></navigator>
+      <navigator url='/pages/myreplylist/myreplylist' class='myGroupItem'>我的回复<text class='rightIcon'></text></navigator>
     </view>
-    <view class='userItem' >
+    <!-- <view class='userItem' >
       <navigator url='##' class='myGroupItem'>花生名片<text class='rightIcon'></text></navigator>
-    </view>
+    </view> -->
   </block>
 
   <view class='nouserinfo' wx:else>

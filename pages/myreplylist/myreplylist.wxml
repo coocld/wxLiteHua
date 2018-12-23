@@ -1,0 +1,37 @@
+<!--index.wxml-->
+<view class="container">
+  <scroll-view class="listScroll" style="height: {{clientHeight?clientHeight+'px':'auto'}}" scroll-y="true" bindscrolltolower="loadMore" enable-back-to-top="true">
+      <view class='topList'>
+          <view class='item' wx:for="{{topList}}" wx:key="{{t}}">
+            <view class='head'>
+              <image class='avatar' src='{{userAvatarUrl}}'></image>
+              <view class='rigcon'>
+                <view class='username'>{{item.passport}}</view>
+                <view class='datatime'>{{item.datatime}}</view>
+              </view>
+              
+            </view>
+            <view class='replycont'>{{item.content}}</view>
+            <navigator class='cont' url='/pages/detail/detail?itemid={{item.tid}}&gid={{item.gid}}'>
+            <view wx:if="{{item.thumb}}" class='hasthumb'>
+              <view class='conbox'>
+                <text class='conname'>@{{item.reppassport}}：</text>
+                <text class='contitle'>{{item.title}}</text>
+              </view>
+              <view class='thumb' ><image class='thumbImg' src="{{item.thumb}}"></image></view>
+            </view>
+            <view wx:else class='nothumb'>
+              <view class='conbox'>
+                <text class='conname'>@{{item.reppassport}}：</text>
+                <text class='contitle'>{{item.title}}</text>
+              </view>
+            </view>
+            </navigator>
+          </view>
+          <view class='moreText'>
+            <text wx:if="{{hasMore}}" class='loading'></text>
+            {{moreText}}
+          </view>
+      </view>
+  </scroll-view>
+</view>

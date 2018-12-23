@@ -42,6 +42,9 @@ Page({
     })
   },
   getGroupList: function (catid) {//获取圈子列表
+    wx.showLoading({
+      title: '加载中',
+    })
     catid = catid ? catid : '4248';
     let that = this;
     wx.request({
@@ -55,6 +58,7 @@ Page({
         app.store.setState({
           groupList: res.data.data
         });
+        wx.hideLoading()
       }
     })
   },

@@ -1,0 +1,35 @@
+<!--index.wxml-->
+<view class="container">
+ <view class='busdetai-top'>
+  <view class='busdetai-head'>
+    <view class='home' ontap="goHome"><image class="homebtn" src='https://www.cnnma.com/public/home.png'></image></view>
+     <button hover-class="none" open-type='share' class='share' ontap="onShareAppMessage"><image class="sharebtn" src='https://www.cnnma.com/public/share.png'></image></button>
+  </view>
+  <view class='companyname'>{{detail.company}}</view>
+  <view class='busthumb'>
+    <image class='busthumbimg' src='{{detail.thumb}}'></image>
+    <image class='vipicon' src='https://www.cnnma.com/public/vips.png'></image>
+  </view>
+  <view class='businfo'>
+    <view class='infoitc'>姓名：{{detail.truename}} 职位：{{detail.career}}</view>
+    <view class='infoitc'>性别：{{detail.gender=='1'?'男':'女'}} 地址：{{detail.parentareaname}}{{detail.areaname}}</view>
+  </view>
+ </view>
+ <view class='busdetail-wide'>
+  <view class='busdetail-ith'>
+    企业类型：{{detail.type}}
+  </view>
+  <view class='busdetail-ith'>
+    业务范围：{{detail.business}}
+  </view>
+ </view>
+ <view class='contact'>
+  <view class='tact'>手机：{{detail.telephone}}</view>
+  <view class='tact'>QQ：{{detail.qq}}</view>
+  <view class='tact'>微信：{{detail.wechat}}</view>
+  <view class='tact'>地址：{{detail.address}}</view>
+ </view>
+ <view class='about'>
+  <rich-text nodes="{{content}}"></rich-text>
+ </view>
+</view>

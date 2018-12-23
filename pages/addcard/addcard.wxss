@@ -60,6 +60,7 @@
   right: 0;
   border-top: 1px solid #cdcdcd;
   background: #fff;
+  z-index: 99;
 }
 .addCardBtn{
   width: 200rpx;

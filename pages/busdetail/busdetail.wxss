@@ -1,0 +1,104 @@
+/**index.wxss**/
+.container{
+  background: #f5f5f5;
+}
+.busdetai-top{
+  background: #00923f;
+  color: #fff;
+  padding-bottom: 20rpx;
+}
+.busdetai-head{
+  width: 100%;
+  height: 60rpx;
+}
+.home{
+  width: 60rpx;
+  height: 60rpx;
+  margin: 20rpx;
+  float: left;
+}
+.share{
+  width: 60rpx;
+  height: 60rpx;
+  margin: 20rpx;
+  float: right;
+  background: none;
+  padding: 0;
+  border: none;
+}
+.homebtn{
+  width: 60rpx;
+  height: 60rpx;
+  border-radius: 100%;
+}
+.sharebtn{
+  width: 60rpx;
+  height: 60rpx;
+  border-radius: 100%;
+  
+}
+.busdetai-head .name{
+  text-align: center;
+ 
+}
+.busdetai-head .sharebtn{
+  padding-right: 20rpx;
+  text-align: right;
+}
+.busthumb{
+  width: 200rpx;
+  height: 200rpx;
+  margin: 20rpx auto;
+  position: relative;
+}
+.busthumbimg{
+  width: 200rpx;
+  height: 200rpx;
+  border-radius: 100%;
+}
+.vipicon{
+  width: 50rpx;
+  height: 50rpx;
+  position: absolute;
+  bottom: -10rpx;
+  right: 20rpx;
+  background: #f5f5f5;
+  border-radius: 100%;
+}
+.businfo{
+  text-align: center;
+  line-height: 70rpx;
+}
+.busdetail-wide{
+  background: #fff;
+  margin-top: 20rpx;
+  padding: 20rpx 0;
+}
+.busdetail-ith{
+  padding: 10rpx 30rpx;
+}
+.contact{
+  margin-top: 20rpx;
+  padding: 20rpx 0;
+  background: #fff;
+}
+.contact .tact{
+padding: 10rpx 30rpx;
+}
+.about{
+  margin: 20rpx 0;
+  background: #fff;
+  padding: 20rpx 30rpx;
+}
+rich-text .rick-img{
+  width: 100% ;
+  height: auto ;
+}
+rich-text img{
+  width: 100% ;
+  height: auto ;
+}
+.companyname{
+  text-align: center
+}
+button::after{ border: none; }

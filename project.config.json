@@ -37,13 +37,13 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 8,
+			"current": 12,
 			"list": [
 				{
 					"id": 0,
 					"name": "detail",
 					"pathName": "pages/detail/detail",
-					"query": "itemid=15&gid=4150"
+					"query": "itemid=70&gid=4153"
 				},
 				{
 					"id": -1,
@@ -90,7 +90,32 @@
 				{
 					"id": -1,
 					"name": "addcard",
-					"pathName": "pages/addcard/addcard"
+					"pathName": "pages/addcard/addcard",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "mycardlist",
+					"pathName": "pages/mycardlist/mycardlist",
+					"query": ""
+				},
+				{
+					"id": 10,
+					"name": "myreplylist",
+					"pathName": "pages/myreplylist/myreplylist",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "buslist",
+					"pathName": "pages/buslist/buslist",
+					"query": ""
+				},
+				{
+					"id": 12,
+					"name": "busdetail",
+					"pathName": "pages/busdetail/busdetail",
+					"query": "userid=2"
 				}
 			]
 		}

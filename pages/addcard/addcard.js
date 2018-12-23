@@ -69,7 +69,7 @@ Page({
         title: '提示',
         content: '最多只能添加四张图片哦',
         confirmText: "我知道了",
-        confirmColor: "#ef8383",
+        confirmColor: "#00923f",
         showCancel: false,
         success: function (res) {
           if (res.confirm) {
@@ -80,7 +80,7 @@ Page({
     } else {//添加图片
       wx.showActionSheet({
         itemList: ['从相册选择', '拍照'],
-        itemColor: '#ef8383',
+        itemColor: '#00923f',
         success: function (res) {
           var choseType = res.tapIndex == 0 ? "album" : res.tapIndex == 1 ? "camera" : "";
           if (choseType != "") {
@@ -155,7 +155,19 @@ Page({
     })
   },
   postCard: function(){
-    console.log(this.data.title.length)
+    let pages = getCurrentPages();
+    let currPage = null; //当前页面
+    let prevPage = null; //上一个页面
+
+    if (pages.length >= 2) {
+      currPage = pages[pages.length - 1]; //当前页面
+      prevPage = pages[pages.length - 2]; //上一个页面
+    }
+    if (prevPage) {
+      prevPage.setData({
+        isPageBack: true
+      });
+    }
     if (!wx.getStorageSync('phoneObj')) {
       wx.navigateTo({
         url: '/pages/login/login'
@@ -179,8 +191,9 @@ Page({
       return false;
     }
     let content = '<div>' + this.data.firstCon+'</div>';
+    content = this.data.firstCon.split('\n').join('<br>');
     for (let i = 0; i < this.data.dataList.length; i++){
-      content += '<div><img style="widrh:100%;height:auto" src="' + this.data.dataList[i].pic + '"/></div><p>' + this.data.dataList[i].value+'</p>'
+      content += '<div><img class="rich-img" src="' + this.data.dataList[i].pic + '"/></div><p>' + this.data.dataList[i].value.split("\n").join("<br>")+'</p>'
     }
     let data = {
       catid: this.data.catid,
@@ -205,6 +218,7 @@ Page({
             "title": "发帖成功",
             "icon": "success"
           })
+          
           setTimeout(function () { 
             wx.navigateBack({
               delta: 1

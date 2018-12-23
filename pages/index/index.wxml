@@ -14,7 +14,7 @@
       <view class='icons'>
         <view class='head'>
           <text class='title'>圈子推荐</text>
-          <navigator url='/pages/mygroup/mygroup' class='more'>我的圈子</navigator>
+          <navigator url='/pages/mygroup/mygroup' class='more'>我的圈子<image src='https://www.cnnma.com/public/right.png' class='moreright'></image></navigator>
         </view>
         <view class='cont'>
           <navigator class='item' wx:for="{{iconsList}}" wx:key="{{t}}" url="/pages/groupdetail/groupdetail?gid={{item.itemid}}">
@@ -31,7 +31,7 @@
           <view class='item' wx:for="{{topList}}" wx:key="{{t}}">
             <view class='head'>
               <image class='avatar' src='{{item.wxheadimgurl?item.wxheadimgurl:item.avatar}}'></image>
-              <text class='username'>{{item.username}}</text>
+              <text class='username'>{{item.passport}}</text>
             </view>
             <navigator class='cont' url='/pages/detail/detail?itemid={{item.itemid}}&gid={{item.gid}}'>
               <view class='title'>{{item.title}}</view>
