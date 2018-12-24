@@ -1,0 +1,46 @@
+<!--index.wxml-->
+<view class="container">
+  <view class='addbus'>
+    <view class='addThumbBtn' bindtap='addThumb'>
+      <image class='busThumb' src='{{busThumbUrl}}'></image>
+      <text class='busThumbtext'>设置企业头像</text>
+      <image src='https://www.cnnma.com/public/right.png' class='moreright'></image>
+    </view>
+
+    <view class='addbusitem'>
+      <view class='addbustitle'>基本信息</view>
+      <view class='addbuscont'>
+        <view class='businpitem'>
+          <text>真实姓名：</text>
+          <input bindinput="truename" placeholder="输入真实姓名" />
+        </view>
+        <view class='businpitem'>
+          <picker
+            mode="date"
+            value="{{busyear}}"
+            bindchange="bindYeaChange"
+            fields="year"
+          >
+          <view class="picker">公司成立：{{busyear}}年</view>
+          </picker>
+        </view>
+      </view>
+    </view>
+
+    <view class='credtextcon'>
+      <textarea class='input_view' maxlength='-1' auto-height='true' bindinput='inputCon' value='{{firstCon}}' placeholder='我是正文，请正经对待（不少于5个字）' bindblur="outBlur" id='0'  />
+      <view wx:for="{{dataList}}" wx:key="{{t}}">
+        <view class='img_view'>
+          <image style='width:100%' src='{{item.pic}}' mode='aspectFit' />
+          <view>
+            <icon type='cancel' bindtap='deletedImg' data-index='{{index}}' size='25' color='#ef8383' style='width:25px;height:25px;margin-left:-35px;margin-top:10px;'></icon>
+          </view>
+        </view>
+        <textarea class='input_view' maxlength='-1' auto-height='true' bindinput='inputCon' value='{{item.value}}' placeholder='继续发挥...' bindblur="outBlur" id='{{index+1}}'  />
+      </view>
+      <view class='toWrite' bindtap='addImg'>插入公司产品图</view>
+    </view>
+    
+    <button bindtap="postbus" type="primary" class='addBusBtn'>发布</button>
+  </view>
+</view>

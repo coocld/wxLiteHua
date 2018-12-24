@@ -2,41 +2,20 @@ var app = getApp()
 var list = []
 Page({
   data: {
-    title: '',
+    busThumbUrl: 'https://www.cnnma.com/api/v2/club/upload/commdefalut.jpg?v=1', //公司头像
     content: '',
-    height: 500,
-    width: 320,
     imgIndex: 0,
     imageLength: 0,
     firstCon: '',
     dataList: [],
-    catid: 0,
-    gid:0
+    truename: '',  //真实姓名
+    busyear: ''  //成立年
   },
   onLoad: function (options) {
-    this.setData({
-      gid: options.gid,
-      catid: options.catid
-    });
+   
   },
   onShow: function (e) {
-    var that = this;
-    //动态获取屏幕尺寸
-    wx.getSystemInfo({
-      success: function (res) {
-        that.setData({
-          height: res.windowHeight,
-          width: res.windowWidth,
-        })
-      },
-      fail: function (res) { },
-      complete: function (res) { },
-    })
-  },
-  inputTitle: function (e) {
-    this.setData({
-      title: e.detail.value
-    })
+    
   },
   /**
    * 输入监听
@@ -92,7 +71,7 @@ Page({
                   title: '图片上传中',
                 })
                 wx.uploadFile({
-                  url: app.globalData.apiUrl + '/api/v2/club/uploadphoto.php', // 仅为示例，非真实的接口地址
+                  url: app.globalData.apiUrl + '/api/v2/club/uploadphoto.php',
                   filePath: res.tempFilePaths[0],
                   name: 'uploaderInput',
                   success: function(updata) {
@@ -153,7 +132,7 @@ Page({
       duration: 1000
     })
   },
-  postCard: function(){
+  postbus: function(){
     let pages = getCurrentPages();
     let currPage = null; //当前页面
     let prevPage = null; //上一个页面
@@ -173,14 +152,6 @@ Page({
       })
       return false;
     }
-    if (this.data.title.length<1){
-      wx.showModal({
-        content: '标题必填',
-        showCancel: false, //不显示取消按钮
-        confirmText: '确定'
-      })
-      return false;
-    }
     if (this.data.firstCon.length<5) {
       wx.showModal({
         content: '内容必填，不少于五个字',
@@ -195,43 +166,82 @@ Page({
       content += '<div><img class="rich-img" src="' + this.data.dataList[i].pic + '"/></div><p>' + this.data.dataList[i].value.split("\n").join("<br>")+'</p>'
     }
     let data = {
-      catid: this.data.catid,
-      gid: this.data.gid,
       username: wx.getStorageSync('phoneObj'),
       passport: wx.getStorageSync('userInfo').nickName,
-      title: this.data.title,
-      content: content,
-      status: 3
+      content: content
     }
+    console.log(content)
 
-    wx.request({
-      url: app.globalData.apiUrl + '/api/v2/club/addCard.php', // 仅为示例，并非真实的接口地址
-      data: JSON.stringify(data),
-      method: 'POST',
-      header: {
-        'content-type': 'application/json' // 默认值
-      },
-      success(res) {
-        if (res.data.code == '200'){
-          wx.showToast({
-            "title": "发帖成功",
-            "icon": "success"
-          })
+    // wx.request({
+    //   url: app.globalData.apiUrl + '/api/v2/club/addCard.php', // 仅为示例，并非真实的接口地址
+    //   data: JSON.stringify(data),
+    //   method: 'POST',
+    //   header: {
+    //     'content-type': 'application/json' // 默认值
+    //   },
+    //   success(res) {
+    //     if (res.data.code == '200'){
+    //       wx.showToast({
+    //         "title": "发帖成功",
+    //         "icon": "success"
+    //       })
           
-          setTimeout(function () { 
-            wx.navigateBack({
-              delta: 1
-            })
-           }, 1000);
+    //       setTimeout(function () { 
+    //         wx.navigateBack({
+    //           delta: 1
+    //         })
+    //        }, 1000);
           
-        }else{
-          wx.showModal({
-            content: '发送失败，请重试',
-            showCancel: false, //不显示取消按钮
-            confirmText: '确定'
+    //     }else{
+    //       wx.showModal({
+    //         content: '发送失败，请重试',
+    //         showCancel: false, //不显示取消按钮
+    //         confirmText: '确定'
+    //       })
+    //     }
+    //   }
+    // })
+  },
+  addThumb: function () {
+    var that = this;
+    wx.showActionSheet({
+      itemList: ['从相册选择', '拍照'],
+      itemColor: '#00923f',
+      success: function (res) {
+        var choseType = res.tapIndex == 0 ? "album" : res.tapIndex == 1 ? "camera" : "";
+        if (choseType != "") {
+          wx.chooseImage({
+            sizeType: ['original'],//原图
+            sourceType: [choseType],
+            count: 1,//每次添加一张
+            success: function (res) {
+              wx.showLoading({
+                title: '图片上传中',
+              })
+              wx.uploadFile({
+                url: app.globalData.apiUrl + '/api/v2/club/uploadphoto.php',
+                filePath: res.tempFilePaths[0],
+                name: 'uploaderInput',
+                success: function (updata) {
+                  console.log(JSON.parse(updata.data).url)
+                  that.setData({
+                    busThumbUrl: JSON.parse(updata.data).url,
+                  })
+                  wx.hideLoading()
+                }
+              })
+            }
           })
         }
+      },
+      fail: function (res) {
+        console.log(res.errMsg)
       }
+    })
+  },
+  bindYeaChange: function(e){
+    this.setData({
+      busyear: e.detail.value
     })
   }
 })

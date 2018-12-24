@@ -11,7 +11,8 @@
     "pages/mycardlist/mycardlist",
     "pages/myreplylist/myreplylist",
     "pages/buslist/buslist",
-    "pages/busdetail/busdetail"
+    "pages/busdetail/busdetail",
+    "pages/addbus/addbus"
   ],
   "window":{
     "backgroundTextStyle":"light",
