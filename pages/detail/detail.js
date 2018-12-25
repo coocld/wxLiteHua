@@ -18,7 +18,9 @@ Page({
     hasMore: true,
     focus: false,
     isliked: false,
-    isreplyBtnc: false
+    isreplyBtnc: false,
+    detailAdImg: '',
+    detailAdurl: ''
   },
   // onShow: function () {
   //   offset = 0
@@ -45,6 +47,7 @@ Page({
         isliked: true
       })
     }
+    this.getDetailAd()
   },
   getDetail: function () {//detail
     let that = this
@@ -256,6 +259,21 @@ Page({
           });
           that.setData({
             isliked: false
+          })
+        }
+      }
+    })
+  },
+  getDetailAd: function () {
+    let that = this
+    wx.request({
+      url: app.globalData.apiUrl + '/api/v2/club/detailAd.php',
+      header: { 'content-type': 'application/json' },
+      success(res) {
+        if (res.data.code == 200) {
+          that.setData({
+            detailAdImg: res.data.data.image_src,
+            detailAdurl: res.data.data.url,
           })
         }
       }

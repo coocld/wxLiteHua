@@ -191,3 +191,12 @@ rich-text .rich-img {
   width: 100% ;
   height: auto ;
 }
+.detailad{
+  width: 680rpx;
+  height: 180rpx;
+  margin: 30rpx auto;
+}
+.detailadimg{
+  width: 680rpx;
+  height: 180rpx;
+}

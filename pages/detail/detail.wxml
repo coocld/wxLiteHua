@@ -24,6 +24,7 @@
         </view>
       </view>
     </view>
+    <navigator url='{{detailAdurl}}' class='detailad'><image class='detailadimg' src='{{detailAdImg}}'></image></navigator>
     <view class='reply'>
       <view class='replyHead'><text class='title'>全部回帖</text></view>
       <view class='replyList'>
