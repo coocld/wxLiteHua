@@ -9,10 +9,28 @@ Page({
     firstCon: '',
     dataList: [],
     truename: '',  //真实姓名
-    busyear: ''  //成立年
+    busyear: '',  //成立年
+    typeList: ['企业单位', '个体经营'],
+    type: '企业单位',
+    city: ['广东省', '广州市']
   },
   onLoad: function (options) {
-   
+    wx.request({
+      url: 'https://www.cnnma.com/ajax.php', // 仅为示例，并非真实的接口地址
+      data: {
+        action: 'area',
+        area_title: '请选择',
+        area_extend: '31755UGFCpG-S - bInXo9Qpeo - S - Ht6Dk7cCrmcQMkBVCNmk',
+        area_id: 1,
+        areaid: 2
+      },
+      header: {
+        'content-type': 'application/x-www-form-urlencoded' // 默认值
+      },
+      success(res) {
+        console.log(res.data)
+      }
+    })
   },
   onShow: function (e) {
     
@@ -242,6 +260,17 @@ Page({
   bindYeaChange: function(e){
     this.setData({
       busyear: e.detail.value
+    })
+  },
+  bindTypeChange: function(e){
+    this.setData({
+      type: this.data.typeList[e.detail.value]
+    })
+  },
+  bindCityChange: function(e){
+    console.log(e)
+    this.setData({
+      city: e.detail.value
     })
   }
 })

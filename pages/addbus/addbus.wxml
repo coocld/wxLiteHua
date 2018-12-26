@@ -11,19 +11,43 @@
       <view class='addbustitle'>基本信息</view>
       <view class='addbuscont'>
         <view class='businpitem'>
-          <text>真实姓名：</text>
-          <input bindinput="truename" placeholder="输入真实姓名" />
+          <text class='lable'>真实姓名：</text>
+          <input class='inp' bindinput="truename" placeholder="输入真实姓名" />
         </view>
         <view class='businpitem'>
+          <text class='lable'>公司成立：</text>
           <picker
             mode="date"
             value="{{busyear}}"
             bindchange="bindYeaChange"
             fields="year"
           >
-          <view class="picker">公司成立：{{busyear}}年</view>
+          <view class="picker inp">成立于{{busyear}}年</view>
           </picker>
         </view>
+        <view class='businpitem'>
+          <text class='lable'>公司类型：</text>
+          <picker
+            mode="selector"
+            value="{{type}}"
+            bindchange="bindTypeChange"
+            range="{{typeList}}"
+          >
+          <view class="picker inp">{{type}}</view>
+          </picker>
+        </view>
+
+        <view class='businpitem'>
+          <text class='lable'>经营城市：</text>
+          <picker
+            mode="region"
+            value="{{city}}"
+            bindchange="bindCityChange"
+          >
+          <view class="picker inp">{{city}}</view>
+          </picker>
+        </view>
+
       </view>
     </view>
 
