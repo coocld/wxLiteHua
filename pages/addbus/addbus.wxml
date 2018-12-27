@@ -1,9 +1,10 @@
 <!--index.wxml-->
 <view class="container">
+  <view class='toptips'>请填写真实企业和个人信息，审核通过才成为企业会员</view>
   <view class='addbus'>
     <view class='addThumbBtn' bindtap='addThumb'>
       <image class='busThumb' src='{{busThumbUrl}}'></image>
-      <text class='busThumbtext'>设置企业头像</text>
+      <text class='busThumbtext'>设置企业形象图</text>
       <image src='https://www.cnnma.com/public/right.png' class='moreright'></image>
     </view>
 
@@ -12,7 +13,7 @@
       <view class='addbuscont'>
         <view class='businpitem'>
           <text class='lable'>真实姓名：</text>
-          <input class='inp' bindinput="truename" placeholder="输入真实姓名" />
+          <input class='inp' bindinput="bindtruename" value='{{truename}}' placeholder="输入真实姓名" />
         </view>
         <view class='businpitem'>
           <text class='lable'>公司成立：</text>
@@ -38,21 +39,47 @@
         </view>
 
         <view class='businpitem'>
-          <text class='lable'>经营城市：</text>
+          <text class='lable'>经营产区：</text>
           <picker
             mode="region"
             value="{{city}}"
-            bindchange="bindCityChange"
+            bindchange="bindCityChang"
           >
           <view class="picker inp">{{city}}</view>
           </picker>
         </view>
 
+        <view class='businpitem'>
+          <text class='lable'>主营业务：</text>
+          <input class='inp' bindinput="bindbusiness" value='{{business}}' placeholder="如:花生米、油料米、磨酱米、食品米" />
+        </view>
+
+      </view>
+    </view>
+
+    <view class='addbusitem'>
+      <view class='addbustitle'>基本信息</view>
+      <view class='businpitem'>
+          <text class='lable'>微信：</text>
+          <input class='inp' bindinput="bindwechat" value='{{wechat}}' placeholder="请输入微信号" />
+      </view>
+      <view class='businpitem'>
+          <text class='lable'>手机：</text>
+          <input class='inp' bindinput="bindtelephone" value='{{telephone}}' placeholder="请输入手机号" />
+      </view>
+      <view class='businpitem'>
+          <text class='lable'>QQ：</text>
+          <input class='inp' bindinput="bindqq" value='{{qq}}' placeholder="请输入qq" />
+      </view>
+      <view class='businpitem'>
+          <text class='lable'>详细地址：</text>
+          <input class='inp' bindinput="bindaddress" value='{{address}}' placeholder="请输入详细地址" />
       </view>
     </view>
 
     <view class='credtextcon'>
-      <textarea class='input_view' maxlength='-1' auto-height='true' bindinput='inputCon' value='{{firstCon}}' placeholder='我是正文，请正经对待（不少于5个字）' bindblur="outBlur" id='0'  />
+      <view class='addbustitle'>公司介绍</view>
+      <textarea class='input_view' maxlength='-1' auto-height='true' bindinput='inputCon' value='{{firstCon}}' placeholder='公司介绍，产品图最多四张' bindblur="outBlur" id='0'  />
       <view wx:for="{{dataList}}" wx:key="{{t}}">
         <view class='img_view'>
           <image style='width:100%' src='{{item.pic}}' mode='aspectFit' />

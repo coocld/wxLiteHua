@@ -20,7 +20,7 @@
     企业类型：{{detail.type}}
   </view>
   <view class='busdetail-ith'>
-    业务范围：{{detail.business}}
+    主营业务：{{detail.business}}
   </view>
  </view>
  <view class='contact'>

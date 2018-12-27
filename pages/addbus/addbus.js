@@ -12,25 +12,15 @@ Page({
     busyear: '',  //成立年
     typeList: ['企业单位', '个体经营'],
     type: '企业单位',
-    city: ['广东省', '广州市']
+    city: [],
+    business: '',
+    wechat: '',
+    telephone: '',
+    qq: '',
+    address: ''
   },
   onLoad: function (options) {
-    wx.request({
-      url: 'https://www.cnnma.com/ajax.php', // 仅为示例，并非真实的接口地址
-      data: {
-        action: 'area',
-        area_title: '请选择',
-        area_extend: '31755UGFCpG-S - bInXo9Qpeo - S - Ht6Dk7cCrmcQMkBVCNmk',
-        area_id: 1,
-        areaid: 2
-      },
-      header: {
-        'content-type': 'application/x-www-form-urlencoded' // 默认值
-      },
-      success(res) {
-        console.log(res.data)
-      }
-    })
+    
   },
   onShow: function (e) {
     
@@ -164,12 +154,12 @@ Page({
         isPageBack: true
       });
     }
-    if (!wx.getStorageSync('phoneObj')) {
-      wx.navigateTo({
-        url: '/pages/login/login'
-      })
-      return false;
-    }
+    // if (!wx.getStorageSync('phoneObj')) {
+    //   wx.navigateTo({
+    //     url: '/pages/login/login'
+    //   })
+    //   return false;
+    // }
     if (this.data.firstCon.length<5) {
       wx.showModal({
         content: '内容必填，不少于五个字',
@@ -186,9 +176,18 @@ Page({
     let data = {
       username: wx.getStorageSync('phoneObj'),
       passport: wx.getStorageSync('userInfo').nickName,
-      content: content
+      content: content,
+      truename: this.data.truename, //真实姓名
+      busyear: this.data.busyear,
+      type: this.data.type,
+      city: this.data.city,
+      business: this.data.business,
+      wechat: this.data.wechat,
+      telephone: this.data.telephone,
+      qq: this.data.qq,
+      address: this.data.address
     }
-    console.log(content)
+    console.log(JSON.stringify(data))
 
     // wx.request({
     //   url: app.globalData.apiUrl + '/api/v2/club/addCard.php', // 仅为示例，并非真实的接口地址
@@ -241,7 +240,6 @@ Page({
                 filePath: res.tempFilePaths[0],
                 name: 'uploaderInput',
                 success: function (updata) {
-                  console.log(JSON.parse(updata.data).url)
                   that.setData({
                     busThumbUrl: JSON.parse(updata.data).url,
                   })
@@ -267,10 +265,41 @@ Page({
       type: this.data.typeList[e.detail.value]
     })
   },
-  bindCityChange: function(e){
+  bindCityChang(e) {
     console.log(e)
     this.setData({
       city: e.detail.value
+    })
+  },
+  bindtruename(e){
+    console.log(e)
+    this.setData({
+      truename: e.detail.value
+    })
+  },
+  bindbusiness(e){
+    this.setData({
+      business: e.detail.value
+    })
+  },
+  bindwechat(e) {
+    this.setData({
+      wechat: e.detail.value
+    })
+  },
+  bindtelephone(e) {
+    this.setData({
+      telephone: e.detail.value
+    })
+  },
+  bindqq(e) {
+    this.setData({
+      qq: e.detail.value
+    })
+  },
+  bindaddress(e) {
+    this.setData({
+      address: e.detail.value
     })
   }
 })
