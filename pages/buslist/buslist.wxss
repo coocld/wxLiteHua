@@ -46,3 +46,15 @@
   font-size: 30rpx;
   padding:40rpx; 
 }
+.addBusCard{
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 100%;
+  background: #e5e5e5;
+  text-align: center;
+  line-height: 50rpx;
+  position: fixed;
+  right: 10rpx;
+  bottom: 50rpx;
+  font-size: 34rpx;
+}

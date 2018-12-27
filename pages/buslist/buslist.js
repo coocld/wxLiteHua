@@ -80,6 +80,11 @@ Page({
         hasMore: false
       })
     }
+  },
+  bindAddBusCard(){
+    wx.navigateTo({
+      url: '/pages/addbus/addbus'
+    })
   }
   
 })

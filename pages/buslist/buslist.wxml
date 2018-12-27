@@ -22,4 +22,5 @@
           </view>
       </view>
   </scroll-view>
+  <view class='addBusCard' ontap="bindAddBusCard">我要发布</view>
 </view>
