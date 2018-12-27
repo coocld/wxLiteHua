@@ -170,14 +170,6 @@ Page({
       })
       return false;
     } 
-    if (this.data.truename=="") {
-      wx.showModal({
-        content: '请填写真实姓名',
-        showCancel: false, //不显示取消按钮
-        confirmText: '确定'
-      })
-      return false;
-    }
     if (this.data.company == "") {
       wx.showModal({
         content: '请填写公司名称',
@@ -186,14 +178,7 @@ Page({
       })
       return false;
     } 
-    if (this.data.career == "") {
-      wx.showModal({
-        content: '请填写公司职务',
-        showCancel: false, //不显示取消按钮
-        confirmText: '确定'
-      })
-      return false;
-    } 
+    
     if (this.data.busyear == "") {
       wx.showModal({
         content: '请选择公司成立年份',
@@ -218,6 +203,23 @@ Page({
       })
       return false;
     }
+    if (this.data.truename == "") {
+      wx.showModal({
+        content: '请填写真实姓名',
+        showCancel: false, //不显示取消按钮
+        confirmText: '确定'
+      })
+      return false;
+    }
+
+    if (this.data.career == "") {
+      wx.showModal({
+        content: '请填写公司职务',
+        showCancel: false, //不显示取消按钮
+        confirmText: '确定'
+      })
+      return false;
+    } 
     if (this.data.wechat == "") {
       wx.showModal({
         content: '请填写微信',
