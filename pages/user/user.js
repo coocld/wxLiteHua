@@ -10,7 +10,7 @@ Page({
   },
   //事件处理函数
   
-  onLoad: function () {
+  onLoad: function (options) {
     if (app.globalData.userInfo) {
       this.setData({
         userInfo: app.globalData.userInfo,

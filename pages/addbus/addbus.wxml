@@ -16,6 +16,25 @@
           <input class='inp' bindinput="bindtruename" value='{{truename}}' placeholder="输入真实姓名" />
         </view>
         <view class='businpitem'>
+          <text class='lable'>性别：</text>
+          <picker
+            mode="selector"
+            value="{{gendername}}"
+            bindchange="bindGenderChange"
+            range="{{genderList}}"
+          >
+          <view class="picker inp">{{gendername}}</view>
+          </picker>
+        </view>
+        <view class='businpitem'>
+          <text class='lable'>公司名称：</text>
+          <input class='inp' bindinput="bindcompany" value='{{company}}' placeholder="输入公司名称" />
+        </view>
+        <view class='businpitem'>
+          <text class='lable'>公司职务：</text>
+          <input class='inp' bindinput="bindcareer" value='{{career}}' placeholder="输入公司职务" />
+        </view>
+        <view class='businpitem'>
           <text class='lable'>公司成立：</text>
           <picker
             mode="date"
@@ -58,7 +77,7 @@
     </view>
 
     <view class='addbusitem'>
-      <view class='addbustitle'>基本信息</view>
+      <view class='addbustitle'>联系方式</view>
       <view class='businpitem'>
           <text class='lable'>微信：</text>
           <input class='inp' bindinput="bindwechat" value='{{wechat}}' placeholder="请输入微信号" />

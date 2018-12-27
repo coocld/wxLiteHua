@@ -82,6 +82,13 @@ Page({
     }
   },
   bindAddBusCard(){
+    if (!wx.getStorageSync('phoneObj')) {
+      wx.setStorageSync('backurl', '/pages/addbus/addbus')
+      wx.switchTab({
+        url: '/pages/user/user'
+      })
+      return false;
+    }
     wx.navigateTo({
       url: '/pages/addbus/addbus'
     })

@@ -2,15 +2,13 @@
 const app = getApp()
 Page({
   data: {
-    
   },
   //事件处理函数
   
-  onLoad: function () {
+  onLoad: function (options) {
     
   },
   getPhoneNumber: function (e) {
-    console.log(e)
     if (e.detail.iv){
       let ivObj = e.detail.iv
       let telObj = e.detail.encryptedData
@@ -32,11 +30,13 @@ Page({
               'content-type': 'application/json' // 默认值
             },
             success: function (res) {
+              console.log(res.data.phoneNumber)
               wx.setStorage({
                 key: "phoneObj",
                 data: res.data.phoneNumber,
               })
-              let phone = wx.getStorageSync('phoneObj')
+              let phone = res.data.phoneNumber
+              console.log(phone)
               let userInfo = wx.getStorageSync('userInfo')
               let userObj = {
                 "username": res.data.phoneNumber,
@@ -51,9 +51,16 @@ Page({
                 success(userdata) {
                   if (userdata.data.code == 200) {
                     console.log(userdata.data.code)
-                    wx.navigateBack({
-                      delta: 2
-                    })
+                    if (wx.getStorageSync('backurl')){
+                      wx.navigateTo({
+                        url: wx.getStorageSync('backurl')
+                      })
+                    }else{
+                      wx.navigateBack({
+                        delta: 2
+                      })
+                    }
+                    
                   } else {
 
                   }

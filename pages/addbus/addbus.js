@@ -2,16 +2,21 @@ var app = getApp()
 var list = []
 Page({
   data: {
-    busThumbUrl: 'https://www.cnnma.com/api/v2/club/upload/commdefalut.jpg?v=1', //公司头像
+    busThumbUrl: 'https://www.cnnma.com/api/v2/club/upload/commdefalut.jpg', //公司头像
     content: '',
     imgIndex: 0,
     imageLength: 0,
     firstCon: '',
     dataList: [],
     truename: '',  //真实姓名
+    gender: 1,
+    gendername: '男',
+    company: '',
     busyear: '',  //成立年
     typeList: ['企业单位', '个体经营'],
+    genderList: ['男', '女'],
     type: '企业单位',
+    career:'总经理',
     city: [],
     business: '',
     wechat: '',
@@ -20,7 +25,9 @@ Page({
     address: ''
   },
   onLoad: function (options) {
-    
+    this.setData({
+      telephone: wx.getStorageSync('phoneObj')
+    })
   },
   onShow: function (e) {
     
@@ -154,20 +161,88 @@ Page({
         isPageBack: true
       });
     }
-    // if (!wx.getStorageSync('phoneObj')) {
-    //   wx.navigateTo({
-    //     url: '/pages/login/login'
-    //   })
-    //   return false;
-    // }
-    if (this.data.firstCon.length<5) {
+    
+    if (this.data.busThumbUrl == "https://www.cnnma.com/api/v2/club/upload/commdefalut.jpg") {
       wx.showModal({
-        content: '内容必填，不少于五个字',
+        content: '请上传企业形象图',
+        showCancel: false, //不显示取消按钮
+        confirmText: '确定'
+      })
+      return false;
+    } 
+    if (this.data.truename=="") {
+      wx.showModal({
+        content: '请填写真实姓名',
         showCancel: false, //不显示取消按钮
         confirmText: '确定'
       })
       return false;
     }
+    if (this.data.company == "") {
+      wx.showModal({
+        content: '请填写公司名称',
+        showCancel: false, //不显示取消按钮
+        confirmText: '确定'
+      })
+      return false;
+    } 
+    if (this.data.career == "") {
+      wx.showModal({
+        content: '请填写公司职务',
+        showCancel: false, //不显示取消按钮
+        confirmText: '确定'
+      })
+      return false;
+    } 
+    if (this.data.busyear == "") {
+      wx.showModal({
+        content: '请选择公司成立年份',
+        showCancel: false, //不显示取消按钮
+        confirmText: '确定'
+      })
+      return false;
+    }
+    if (this.data.city == "") {
+      wx.showModal({
+        content: '请选择经营产区',
+        showCancel: false, //不显示取消按钮
+        confirmText: '确定'
+      })
+      return false;
+    }
+    if (this.data.business == "") {
+      wx.showModal({
+        content: '请填写主营业务',
+        showCancel: false, //不显示取消按钮
+        confirmText: '确定'
+      })
+      return false;
+    }
+    if (this.data.wechat == "") {
+      wx.showModal({
+        content: '请填写微信',
+        showCancel: false, //不显示取消按钮
+        confirmText: '确定'
+      })
+      return false;
+    }
+    if (this.data.address == "") {
+      wx.showModal({
+        content: '请填写详细地址',
+        showCancel: false, //不显示取消按钮
+        confirmText: '确定'
+      })
+      return false;
+    }
+    if (this.data.firstCon.length < 5) {
+      wx.showModal({
+        content: '公司简介，不少于五个字',
+        showCancel: false, //不显示取消按钮
+        confirmText: '确定'
+      })
+      return false;
+    }
+
     let content = '<div>' + this.data.firstCon+'</div>';
     content = this.data.firstCon.split('\n').join('<br>');
     for (let i = 0; i < this.data.dataList.length; i++){
@@ -176,8 +251,10 @@ Page({
     let data = {
       username: wx.getStorageSync('phoneObj'),
       passport: wx.getStorageSync('userInfo').nickName,
+      busThumbUrl: this.data.busThumbUrl,
       content: content,
       truename: this.data.truename, //真实姓名
+      company: this.data.company,
       busyear: this.data.busyear,
       type: this.data.type,
       city: this.data.city,
@@ -185,7 +262,8 @@ Page({
       wechat: this.data.wechat,
       telephone: this.data.telephone,
       qq: this.data.qq,
-      address: this.data.address
+      address: this.data.address,
+      gender: this.data.gender
     }
     console.log(JSON.stringify(data))
 
@@ -265,6 +343,13 @@ Page({
       type: this.data.typeList[e.detail.value]
     })
   },
+  bindGenderChange: function (e) {
+    this.setData({
+      gender: parseInt(parseInt(e.detail.value)+1),
+      gendername: this.data.genderList[e.detail.value]
+    })
+    console.log(this.data.gender)
+  },
   bindCityChang(e) {
     console.log(e)
     this.setData({
@@ -300,6 +385,16 @@ Page({
   bindaddress(e) {
     this.setData({
       address: e.detail.value
+    })
+  },
+  bindcompany(e) {
+    this.setData({
+      company: e.detail.value
+    })
+  },
+  bindcareer(e) {
+    this.setData({
+      career: e.detail.value
     })
   }
 })
