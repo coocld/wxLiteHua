@@ -148,20 +148,6 @@ Page({
     })
   },
   postbus: function(){
-    let pages = getCurrentPages();
-    let currPage = null; //当前页面
-    let prevPage = null; //上一个页面
-
-    if (pages.length >= 2) {
-      currPage = pages[pages.length - 1]; //当前页面
-      prevPage = pages[pages.length - 2]; //上一个页面
-    }
-    if (prevPage) {
-      prevPage.setData({
-        isPageBack: true
-      });
-    }
-    
     if (this.data.busThumbUrl == "https://www.cnnma.com/api/v2/club/upload/commdefalut.jpg") {
       wx.showModal({
         content: '请上传企业形象图',
@@ -259,45 +245,45 @@ Page({
       company: this.data.company,
       busyear: this.data.busyear,
       type: this.data.type,
-      city: this.data.city,
+      city: this.data.city[0] + "-" + this.data.city[1] + "-" + this.data.city[2],
       business: this.data.business,
       wechat: this.data.wechat,
       telephone: this.data.telephone,
       qq: this.data.qq,
       address: this.data.address,
-      gender: this.data.gender
+      gender: this.data.gender,
+      career: this.data.career
     }
-    console.log(JSON.stringify(data))
 
-    // wx.request({
-    //   url: app.globalData.apiUrl + '/api/v2/club/addCard.php', // 仅为示例，并非真实的接口地址
-    //   data: JSON.stringify(data),
-    //   method: 'POST',
-    //   header: {
-    //     'content-type': 'application/json' // 默认值
-    //   },
-    //   success(res) {
-    //     if (res.data.code == '200'){
-    //       wx.showToast({
-    //         "title": "发帖成功",
-    //         "icon": "success"
-    //       })
+    wx.request({
+      url: app.globalData.apiUrl + '/api/v2/club/addBus.php',
+      data: JSON.stringify(data),
+      method: 'POST',
+      header: {
+        'content-type': 'application/json' // 默认值
+      },
+      success(res) {
+        if (res.data.code == '200'){
+          wx.showToast({
+            "title": "发布成功，等待审核",
+            "icon": "success"
+          })
           
-    //       setTimeout(function () { 
-    //         wx.navigateBack({
-    //           delta: 1
-    //         })
-    //        }, 1000);
+          setTimeout(function () { 
+            wx.navigateBack({
+              delta: 1
+            })
+           }, 1000);
           
-    //     }else{
-    //       wx.showModal({
-    //         content: '发送失败，请重试',
-    //         showCancel: false, //不显示取消按钮
-    //         confirmText: '确定'
-    //       })
-    //     }
-    //   }
-    // })
+        }else{
+          wx.showModal({
+            content: '发送失败，请重试',
+            showCancel: false, //不显示取消按钮
+            confirmText: '确定'
+          })
+        }
+      }
+    })
   },
   addThumb: function () {
     var that = this;
@@ -353,13 +339,11 @@ Page({
     console.log(this.data.gender)
   },
   bindCityChang(e) {
-    console.log(e)
     this.setData({
       city: e.detail.value
     })
   },
   bindtruename(e){
-    console.log(e)
     this.setData({
       truename: e.detail.value
     })

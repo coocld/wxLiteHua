@@ -16,9 +16,9 @@
     <view class='userItem' >
       <navigator url='/pages/myreplylist/myreplylist' class='myGroupItem'>我的回复<text class='rightIcon'></text></navigator>
     </view>
-    <!-- <view class='userItem' >
-      <navigator url='##' class='myGroupItem'>花生名片<text class='rightIcon'></text></navigator>
-    </view> -->
+    <view class='userItem' >
+      <navigator url='/pages/addbus/addbus' class='myGroupItem'>完善信息，上花生圈商家头条<text class='rightIcon'></text></navigator>
+    </view>
   </block>
 
   <view class='nouserinfo' wx:else>

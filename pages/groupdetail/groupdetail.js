@@ -64,18 +64,21 @@ Page({
       success(res) {
         if(res.data.data.length<1){
           that.setData({
-            moreText: "暂无内容"
+            moreText: "暂无内容",
+            isPageBack: false
           })
         } else if (res.data.data.length < 3){
           that.setData({
             moreText: "无更多数据",
             groupCardList: res.data.data,
-            total: res.data.pages.total
+            total: res.data.pages.total,
+            isPageBack: false
           })
         }else{
           that.setData({
             groupCardList: res.data.data,
-            total: res.data.pages.total
+            total: res.data.pages.total,
+            isPageBack: false
           })
         }
       }

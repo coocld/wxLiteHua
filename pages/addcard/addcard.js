@@ -162,11 +162,7 @@ Page({
       currPage = pages[pages.length - 1]; //当前页面
       prevPage = pages[pages.length - 2]; //上一个页面
     }
-    if (prevPage) {
-      prevPage.setData({
-        isPageBack: true
-      });
-    }
+    
     if (!wx.getStorageSync('phoneObj')) {
       wx.navigateTo({
         url: '/pages/login/login'
@@ -213,6 +209,11 @@ Page({
       },
       success(res) {
         if (res.data.code == '200'){
+          if (prevPage) {
+            prevPage.setData({
+              isPageBack: true
+            });
+          }
           wx.showToast({
             "title": "发帖成功",
             "icon": "success"
