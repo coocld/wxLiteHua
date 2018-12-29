@@ -16,8 +16,8 @@
     <view class='userItem' >
       <navigator url='/pages/myreplylist/myreplylist' class='myGroupItem'>我的回复<text class='rightIcon'></text></navigator>
     </view>
-    <view class='userItem' >
-      <navigator url='/pages/addbus/addbus' class='myGroupItem'>完善信息，上花生圈商家头条<text class='rightIcon'></text></navigator>
+    <view class='userItem'>
+      <navigator url='/pages/addbus/addbus' class='myGroupItem busItem'>完善商户信息，上花生圈商家头条<text class='rightIcon'></text></navigator>
     </view>
   </block>
 

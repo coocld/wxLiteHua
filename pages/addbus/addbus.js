@@ -30,7 +30,7 @@ Page({
     })
   },
   onShow: function (e) {
-    
+    // this.selectBusInfo()
   },
   /**
    * 输入监听
@@ -382,5 +382,36 @@ Page({
     this.setData({
       career: e.detail.value
     })
+  },
+  selectBusInfo(){
+    let that =this
+    if (wx.getStorageSync('phoneObj')) {
+      wx.request({
+        url: app.globalData.apiUrl + '/api/v2/club/selectBus.php?username=' + wx.getStorageSync('phoneObj'),
+        method: 'GET',
+        header: { 'content-type': 'application/json' },
+        success(res) {
+          if (res.data.code = "200") {
+            let citystr = res.data.data.regcity
+            console.log(citystr)
+           that.setData({
+             busThumbUrl: res.data.data.thumb,
+             truename: res.data.data.truename, //真实姓名
+             company: res.data.data.company,
+             busyear: res.data.data.regyear,
+             type: res.data.data.type,
+             city: res.data.data.regcity.split('-'),
+             business: res.data.data.business,
+             wechat: res.data.data.wechat,
+             telephone: res.data.data.mobile,
+             qq: res.data.data.qq,
+             address: res.data.data.address,
+             gender: res.data.data.gender,
+             career: res.data.data.career
+           })
+          }
+        }
+      })
+    }
   }
 })

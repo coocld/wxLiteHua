@@ -65,3 +65,6 @@
   position: relative;
   top: 30rpx;
 }
+.busItem{
+  font-size: 30rpx;
+}
