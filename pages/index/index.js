@@ -38,7 +38,7 @@ Page({
   getSlide: function () {//轮播
     let that = this
     wx.request({
-      url: app.globalData.apiUrl + '/api/v2/club/homeSlide.php',
+      url: app.globalData.apiUrl + '/api/v2/club/homeBanner.php',
       header: {'content-type': 'application/json'},
       success(res) {
         that.setData({

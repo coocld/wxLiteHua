@@ -5,8 +5,8 @@
         autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
         <block wx:for="{{imgUrls}}" wx:key="{{t}}">
           <swiper-item>
-            <navigator url='/pages/detail/detail?itemid={{item.itemid}}&gid={{item.gid}}'>
-              <image src="{{item.thumb}}" class="slide-image" />
+            <navigator url='{{item.image_url}}'>
+              <image src="{{item.image_src}}" class="slide-image" />
             </navigator>
           </swiper-item>
         </block>
